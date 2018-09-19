@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true, trim: true, minlength: 1 },
   password: String,
-  profilePic: { type: String, default: "/images/profile-picture.png" },
+  profilePic: String,
   description: {
     type: String,
     default: "I have not added a description about me yet"

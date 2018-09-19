@@ -1,19 +1,23 @@
 const mongoose = require('mongoose');
 
 const pinSchema = new mongoose.Schema({
-  location: {
+  lat: {
     type: String,
     required: [true, 'The location is required']
   },
-  image: {
+  long: {
     type: String,
-    required: [true, "A picture is required"]
+    required: [true, 'The location is required']
   },
+  address: String,
+  country: String,
+  image: String,
+  // required: [true, "A picture is required"]
   tag: {
     type: String,
-    enum: ['Beach', 'Mountains', 'Snow', 'Sports', 'Wild/Remote', "Forest", "Desert", "Other"]
+    enum: ['Beach', 'Mountains', 'Snow', 'Sports', 'Remote', "Forest", "Desert", "Other"]
   },
-  _owner: { type: Schema.ObjectId, ref: "User" }
+  _owner: { type: mongoose.Schema.ObjectId, ref: "User" }
 },
   {
     timestamps: {

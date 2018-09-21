@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const service = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api',
+  baseURL: process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:4000/api',
   withCredentials: true
 });
 
@@ -13,26 +13,47 @@ const errHandler = err => {
 export default {
   service: service,
 
-  getCountries() {
+  getPins() {
     return service
-      .get('/countries')
+      .get('/pins')
       .then(res => res.data)
       .catch(errHandler);
   },
 
-  postCountries(data) {
+  getPin(id) {
     return service
-      .post('/countries', data)
+      .get('/pins/' + id)
       .then(res => res.data)
       .catch(errHandler);
   },
 
-  getSecret() {
+  postPin(data) {
     return service
-      .get('/secret')
+      .post('/pins', data)
       .then(res => res.data)
       .catch(errHandler);
   },
+
+  editPin(data, id) {
+    return service
+      .patch('/pins/' + id, data)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  deletePin(id) {
+    return service
+      .delete('/pins/' + id)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  // getSecret() {
+  //   return service
+  //     .get('/secret')
+  //     .then(res => res.data)
+  //     .catch(errHandler);
+  // },
 
   signup(userInfo) {
     return service
@@ -78,16 +99,5 @@ export default {
   },
 
 
-  addPicture(file) {
-    const formData = new FormData();
-    formData.append("picture", file)
-    return service
-      .post('/users/first-user/pictures', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
+
 };

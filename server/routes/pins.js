@@ -2,9 +2,22 @@ const express = require('express');
 const Pin = require('../models/Pin')
 const { isLoggedIn } = require('../middlewares')
 const router = express.Router();
+///const uploadCloud = require("../config/cloudinary.js");
+
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+const multer = require('multer');
+
+const storage = cloudinaryStorage({
+  cloudinary,
+  folder: 'my-images',
+  allowedFormats: ['jpg', 'png', 'gif'],
+});
+
+const parser = multer({ storage });
 
 // Route to get all pins
-router.get('/pins', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Pin.find()
     .then(pins => {
       res.json(pins);
@@ -13,16 +26,13 @@ router.get('/pins', (req, res, next) => {
 });
 
 // Route to add a pin
-router.post('/add-new', isLoggedIn, (req, res, next) => {
+router.post('/', isLoggedIn, parser.single("picture"), (req, res, next) => {
+  const image = req.file ? req.file.url : req.body.image
+  const { lat, long, address, country, tag } = req.body;
   const newPin = new Pin({
-    lat: req.body.lat,
-    long: req.body.long,
-    address: req.body.address,
-    country: req.body.country,
-    image: req.body.image,
-    tag: req.body.tag,
-    _owner: req.user._id
+    lat, long, address, country, tag, _owner: req.user._id, image
   })
+
   newPin.save()
     .then((pin) => {
       console.log("The pin was saved!!!");
@@ -35,9 +45,16 @@ router.post('/add-new', isLoggedIn, (req, res, next) => {
 });
 
 //Route to edit a pin
-router.patch('/:id', isLoggedIn, (req, res, next) => {
-  const { lat, long, address, country, image, tag } = req.body;
-  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, country, image, tag } }, { new: true, runValidators: true })
+router.patch('/:id', isLoggedIn, parser.single("picture"), (req, res, next) => {
+  let updatedImage;
+  if (req.file) {
+    updatedImage = req.file.url
+  }
+  else {
+    updatedImage = req.body.image
+  }
+  const { lat, long, address, country, tag } = req.body;
+  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, country, tag, image: updatedImage } }, { new: true, runValidators: true })
     .then((pin) => {
       res.json({
         success: true,
@@ -53,7 +70,7 @@ router.patch('/:id', isLoggedIn, (req, res, next) => {
 })
 
 //Route to remove a pin
-router.delete('/:id/remove', isLoggedIn, (req, res, next) => {
+router.delete('/:id', isLoggedIn, (req, res, next) => {
   Pin.findByIdAndRemove(req.params.id)
     .then(() => {
       res.json({
@@ -69,7 +86,7 @@ router.delete('/:id/remove', isLoggedIn, (req, res, next) => {
 })
 
 //Route to get one specific pin
-router.get('/pins/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   Pin.findById(req.params.id)
     .then(pinFromDb => {
       res.json({

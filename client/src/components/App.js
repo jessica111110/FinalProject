@@ -14,7 +14,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      countries: []
+      countries: [],
+      pins: []
     }
     // api.loadUser();
   }
@@ -46,8 +47,21 @@ class App extends Component {
           <Route path="/secret" component={Secret} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
+        <ul>
+          {this.state.pins.map(p => (
+            <li>{p.tag}</li>
+          ))}
+        </ul>
       </div>
     );
+  }
+  componentDidMount() {
+    api.getPins()
+      .then(pins => {
+        this.setState({
+          pins
+        })
+      })
   }
 }
 

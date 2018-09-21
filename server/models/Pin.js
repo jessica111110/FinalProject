@@ -2,17 +2,19 @@ const mongoose = require('mongoose');
 
 const pinSchema = new mongoose.Schema({
   lat: {
-    type: String,
+    type: Number,
     required: [true, 'The location is required']
   },
   long: {
-    type: String,
+    type: Number,
     required: [true, 'The location is required']
   },
   address: String,
   country: String,
-  image: String,
-  // required: [true, "A picture is required"]
+  image: {
+    type: String,
+    required: [true, "A picture is required"]
+  },
   tag: {
     type: String,
     enum: ['Beach', 'Mountains', 'Snow', 'Sports', 'Remote', "Forest", "Desert", "Other"]

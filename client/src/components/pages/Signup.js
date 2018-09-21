@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class Signup extends Component {
           Password: <input type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
+        <Link to="/login">Already have an account? Login here.</Link>
       </div>
     );
   }

@@ -48,12 +48,12 @@ export default {
       .catch(errHandler);
   },
 
-  // getSecret() {
-  //   return service
-  //     .get('/secret')
-  //     .then(res => res.data)
-  //     .catch(errHandler);
-  // },
+  getSecret() {
+    return service
+      .get('/secret')
+      .then(res => res.data)
+      .catch(errHandler);
+  },
 
   signup(userInfo) {
     return service

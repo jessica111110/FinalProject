@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
 });
 
 // Route to add a pin
-router.post('/', isLoggedIn, parser.single("picture"), (req, res, next) => {
+router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
   const image = req.file ? req.file.url : req.body.image
   const { lat, long, address, country, tag } = req.body;
   const newPin = new Pin({
@@ -45,10 +45,10 @@ router.post('/', isLoggedIn, parser.single("picture"), (req, res, next) => {
 });
 
 //Route to edit a pin
-router.patch('/:id', isLoggedIn, parser.single("picture"), (req, res, next) => {
+router.patch('/:id', isLoggedIn, parser.single("image"), (req, res, next) => {
   let updatedImage;
   if (req.file) {
-    updatedImage = req.file.url
+    updatedImage = req.file.secure_url
   }
   else {
     updatedImage = req.body.image

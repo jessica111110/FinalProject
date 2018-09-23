@@ -10,7 +10,6 @@ const pinSchema = new mongoose.Schema({
     required: [true, 'The location is required']
   },
   address: String,
-  country: String,
   image: {
     type: String,
     required: [true, "A picture is required"]

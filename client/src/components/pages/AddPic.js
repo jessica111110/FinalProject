@@ -89,7 +89,7 @@ class AddPic extends Component {
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags 1:
           <Input type="select" name="select" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
-            {["Beach", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el) =>
+            {["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el) =>
               (<option value={el}>{el}</option>))
             }
           </Input>

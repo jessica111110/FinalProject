@@ -17,15 +17,16 @@ class AddPic extends Component {
       lat: null,
       long: null,
       address: "",
-      tag: ["Beach", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Sea", "Snow", "Waterfall", "Woods"],
+      tag: null,
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChangeAdress = this.handleChangeAdress.bind(this)
   }
 
   handleSelect(latLng) {
+    console.log("handle select", latLng)
     this.setState({
       lat: latLng.lat,
       long: latLng.lng,
@@ -36,25 +37,41 @@ class AddPic extends Component {
     this.setState({ address });
   };
 
+  // handleFileChange(event) {
+  //   this.setState({
+  //     file: event.target.files[0]
+  //   })
+  // }
+
   handleInputChange(stateFieldName, event) {
-    this.setState({
-      [stateFieldName]: event.target.value
-    })
+    if (stateFieldName === "image") {
+      console.log("handle input", event.target.files[0])
+      this.setState({
+        [stateFieldName]: event.target.files[0]
+      })
+    }
+    else {
+      // console.log("evnttagertevaluename", event.target.files.name)
+      this.setState({
+        [stateFieldName]: event.target.value
+      })
+    }
   }
 
-  handleClick(e) {
+  handleSubmit(e) {
     e.preventDefault()
-    let Pin = {
+
+    let pin = {
       lat: this.state.lat,
       long: this.state.long,
       address: this.state.address,
       image: this.state.image,
       tag: this.state.tag
     }
-    console.log("PIN", Pin)
-    api.postPin(Pin)
+    console.log("PIN", pin)
+    api.postPin(pin)
       .then(result => {
-        console.log('ADD PIC SUCCESS!')
+        console.log('ADD PIC SUCCESS!', result)
         this.props.history.push("/") // Redirect to the home page
       })
       .catch(err => {
@@ -66,20 +83,20 @@ class AddPic extends Component {
     return (
       <div className="AddPic">
         <h2>Choose your Picture</h2>
-        <form>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br />
           {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags 1:
-          <Input type="select" name="select" id="exampleSelect">
-            {this.state.tag.map((el, i) =>
-              (<option>{this.state.tag[i]}</option>))
+          <Input type="select" name="select" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
+            {["Beach", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el) =>
+              (<option value={el}>{el}</option>))
             }
           </Input>
           {/* Tags 2:
           <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
           <LocationSearchInput name="address" onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
-          <button onClick={(e) => this.handleClick(e)}>Upload</button>
+          <button type="submit">Upload</button>
         </form>
       </div>
     );

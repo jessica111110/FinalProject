@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Navbar color="light" light expand="md">
+        <Navbar color="dark" light expand="md">
           <NavbarBrand href="/"></NavbarBrand>
           <Link to="/">Home</Link>
           <Link to="/list-view">List view</Link>

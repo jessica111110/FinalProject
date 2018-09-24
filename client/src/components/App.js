@@ -32,7 +32,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React Map</h1>
           <Link to="/">Home</Link>
           <Link to="/list-view">List view</Link>
-          {api.isLoggedIn() ? <Link to="/add-picture">Add Picture</Link> : <Link to="/">Add Picture</Link>}
+          {api.isLoggedIn() ? <Link to="/add-picture">Add Picture</Link> : <Link to="/login">Add Picture</Link>}
           {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
           {!api.isLoggedIn() && <Link to="/login">Login</Link>}
           {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}

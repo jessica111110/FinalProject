@@ -28,8 +28,16 @@ export default {
   },
 
   postPin(data) {
+    const formData = new FormData();
+    for (var key in data) {
+      formData.append(key, data[key]);
+    }
     return service
-      .post('/pins', data)
+      .post('/pins', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -96,6 +104,32 @@ export default {
 
   isLoggedIn() {
     return localStorage.getItem('user') != null
+  },
+
+  addPicture(file) {
+    const formData = new FormData();
+    formData.append("image", file)
+    return service
+      .post('/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  addProfilePicture(file) {
+    const formData = new FormData();
+    formData.append("image", file)
+    return service
+      .patch('/:id', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => res.data)
+      .catch(errHandler);
   },
 
 

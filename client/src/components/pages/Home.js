@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../api';
 import '../App.css';
-import RectangleMarker from '../markers/RectangleMarker'
+import RectangleMarker from '../markers/RectangleMarker';
+import PlusButton from '../pages/PlusButton'
 import GoogleMap from 'google-map-react';
 
 
@@ -19,6 +20,7 @@ class Home extends Component {
         <h2>Home</h2>
         <p>This is a sample project with the MERN stack</p>
         <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" alt="l" />
+        <PlusButton />
         <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
           <GoogleMap
             margin={[10, 20, 30, 40]}
@@ -27,11 +29,11 @@ class Home extends Component {
             zoom={10}>
             {this.state.pins.map(p => (
               <RectangleMarker
+                image={p.image}
                 lat={p.lat} lng={p.long}
                 borderColor="red"
                 onClick={e => console.log("click")}
                 onMouseLeave={e => console.log("mouseLeave")}>
-                <img src={p.image} alt="test" />
               </RectangleMarker>
             ))}
           </GoogleMap>

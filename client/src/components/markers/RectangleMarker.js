@@ -31,7 +31,8 @@ class RectangleMarker extends Component {
     let borderColor = this.props.borderColor || '#f44336'
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
-        <div>{this.props.children}</div>
+        {<img src={this.props.image} width="125" height="100" objectFit="cover" alt="test" />
+        }        <div>{this.props.children}</div>
       </div>
     );
   }

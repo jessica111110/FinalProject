@@ -25,8 +25,8 @@ class Home extends Component {
           <GoogleMap
             margin={[10, 20, 30, 40]}
             // apiKey={YOUR_GOOGLE_MAP_API_KEY}
-            center={{ lat: 52.506, lng: 13.37 }}
-            zoom={10}>
+            center={{ lat: 0.56, lng: 18.80 }}
+            zoom={0.1}>
             {this.state.pins.map(p => (
               <RectangleMarker
                 image={p.image}

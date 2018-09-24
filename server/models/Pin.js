@@ -16,7 +16,7 @@ const pinSchema = new mongoose.Schema({
   },
   tag: {
     type: String,
-    enum: ['Beach', 'Mountains', 'Snow', 'Sports', 'Remote', "Forest", "Desert", "Other"]
+    enum: ["Beach", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Sea", "Snow", "Waterfall", "Woods", "Other"]
   },
   _owner: { type: mongoose.Schema.ObjectId, ref: "User" }
 },

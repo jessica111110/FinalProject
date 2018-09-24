@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
   // geocodeByPlaceId,
   getLatLng,
 } from 'react-places-autocomplete';
+import { Input } from 'reactstrap';
+
 
 
 class AddPic extends Component {
@@ -15,7 +17,7 @@ class AddPic extends Component {
       lat: null,
       long: null,
       address: "",
-      tag: "",
+      tag: ["Beach", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Sea", "Snow", "Waterfall", "Woods"],
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -68,7 +70,14 @@ class AddPic extends Component {
           <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br />
           {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
-          Tags: <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br />
+          Tags 1:
+          <Input type="select" name="select" id="exampleSelect">
+            {this.state.tag.map((el, i) =>
+              (<option>{this.state.tag[i]}</option>))
+            }
+          </Input>
+          {/* Tags 2:
+          <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
           <LocationSearchInput name="address" onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
           <button onClick={(e) => this.handleClick(e)}>Upload</button>
         </form>
@@ -97,7 +106,9 @@ class LocationSearchInput extends React.Component {
   };
 
   render() {
+    console.log("DEBUGGGG")
     return (
+
       <PlacesAutocomplete
         value={this.props.address}
         onChange={this.props.handleChangeAdress}

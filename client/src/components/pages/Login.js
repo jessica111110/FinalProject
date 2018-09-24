@@ -9,9 +9,11 @@ class Login extends Component {
       username: "",
       password: "",
     }
+    console.log("CONSTRUCTOR WORKING")
   }
 
   handleInputChange(stateFieldName, event) {
+    console.log("HANDLE INPUT WORKING")
     this.setState({
       [stateFieldName]: event.target.value
     })

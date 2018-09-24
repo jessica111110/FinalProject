@@ -18,13 +18,12 @@ class Home extends Component {
       <div className="Home">
         <h2>Home</h2>
         <p>This is a sample project with the MERN stack</p>
-        <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" alt="l" />
         <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
           <GoogleMap
             margin={[10, 20, 30, 40]}
             // apiKey={YOUR_GOOGLE_MAP_API_KEY}
-            center={{ lat: 52.506, lng: 13.37 }}
-            zoom={10}>
+            center={{ lat: 0.56, lng: 18.80 }}
+            zoom={0.1}>
             {this.state.pins.map(p => (
               <RectangleMarker
                 lat={p.lat} lng={p.long}

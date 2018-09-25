@@ -8,12 +8,11 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      message: null
     }
-    console.log("CONSTRUCTOR WORKING")
   }
 
   handleInputChange(stateFieldName, event) {
-    console.log("HANDLE INPUT WORKING")
     this.setState({
       [stateFieldName]: event.target.value
     })
@@ -26,9 +25,8 @@ class Login extends Component {
         console.log('SUCCESS!')
         this.props.history.push("/") // Redirect to the home page
       })
-      .catch(err => {
-        console.log('ERROR')
-      })
+      .catch(err => this.setState({ message: err.response.data.message }))
+
   }
 
   render() {
@@ -40,6 +38,9 @@ class Login extends Component {
           Password: <input type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Login</button>
         </form>
+        {this.state.message && <div className="info info-danger">
+          {this.state.message}
+        </div>}
         <Link to="/signup">Not yet any account? Signup here.</Link>
       </div>
     );

@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 
 import { Route, Link, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-// import Countries from './pages/Countries';
+import List from './pages/List';
 import AddPic from './pages/AddPic';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -40,8 +40,8 @@ class App extends Component {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/countries" component={Countries} />
-          <Route path="/add-country" component={AddCountry} /> */}
+          {/* <Route path="/countries" component={Countries} /> */}
+          <Route path="/list-view" component={List} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/add-picture" component={AddPic} />

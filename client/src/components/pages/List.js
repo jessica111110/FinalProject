@@ -7,12 +7,12 @@ import SearchField from '../pages/SearchField';
 import GoogleMap from 'google-map-react';
 
 
-class Home extends Component {
+class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
       pins: [],
-      tagFilter: null,
+      tagFilter: null
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -33,35 +33,17 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="List">
         <PlusButton />
         <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
-        <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
-          <GoogleMap
-            margin={[10, 20, 30, 40]}
-            // apiKey={YOUR_GOOGLE_MAP_API_KEY}
-            center={{ lat: 0.56, lng: 18.80 }}
-            zoom={0.1}>
-            {this.state.pins.filter(p => {
-              if (this.state.tagFilter === null) return true
-              else if (this.state.tagFilter !== "") {
-                return p.tag === this.state.tagFilter
-              }
-            }).map((p, i) => (
-              <RectangleMarker
-                key={i}
-                image={p.image}
-                lat={p.lat} lng={p.long}
-                borderColor="red">
-              </RectangleMarker>
-            ))}
-          </GoogleMap>
-        </div>
-        {/* <ul>
-          {this.state.pins.map(p => (
-            <li>{p.tag}</li>
-          ))}
-        </ul> */}
+        {this.state.pins.filter(p => {
+          if (this.state.tagFilter === null) return true
+          else if (this.state.tagFilter !== "") {
+            return p.tag === this.state.tagFilter
+          }
+        }).map((p, i) => (
+          <img src={p.image} alt="test" />
+        ))}
       </div>
     );
   }
@@ -75,4 +57,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default List;

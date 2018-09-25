@@ -6,6 +6,7 @@ import {
 import Home from './pages/Home';
 import List from './pages/List';
 import AddPic from './pages/AddPic';
+import EditPic from './pages/EditPic';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
@@ -46,6 +47,7 @@ class App extends Component {
           <Route path="/list-view" component={List} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/edit-picture" component={EditPic} />
           <Route path="/add-picture" component={AddPic} />
           <Route render={() => <h2>404</h2>} />
         </Switch>

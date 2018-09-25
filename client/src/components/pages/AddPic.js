@@ -123,7 +123,6 @@ class LocationSearchInput extends React.Component {
   };
 
   render() {
-    console.log("DEBUGGGG")
     return (
 
       <PlacesAutocomplete

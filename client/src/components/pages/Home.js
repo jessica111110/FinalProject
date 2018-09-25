@@ -13,9 +13,12 @@ class Home extends Component {
     this.state = {
       pins: [],
       tagFilter: null,
+      currentUser: "",
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
+    this._setCurrentUser = this._setCurrentUser.bind(this)
+    this.deletePin = this.deletePin.bind(this)
   }
 
   handleInputChange(stateFieldName, event) {
@@ -29,6 +32,26 @@ class Home extends Component {
     this.setState({
       [stateFieldName]: event.target.value
     })
+  }
+
+  _setCurrentUser(pinOwner) {
+    // console.log("TRUEORFALSE", this.state.currentUser._id === pinOwner)
+    // console.log("TYPEOFCURRENTUSR", this.state.currentUser)
+    // console.log("TYPEOFPIOWWNER", pinOwner)
+    return this.state.currentUser._id === pinOwner
+  }
+
+  deletePin(event, pinIdToDelete) {
+    event.preventDefault();
+    api.deletePin(pinIdToDelete._id)
+      .then(toDelete => {
+        console.log("PINTODELETE", toDelete)
+        this.setState({
+          pins: this.state.pins.filter(p =>
+            p !== pinIdToDelete
+          )
+        })
+      })
   }
 
   render() {
@@ -49,12 +72,14 @@ class Home extends Component {
               }
             }).map((p, i) => (
               <RectangleMarker
+                deletePin={this.deletePin}
                 key={i}
+                pinId={p}
                 image={p.image}
                 lat={p.lat} lng={p.long}
                 borderColor="red"
-              >
-              </RectangleMarker>
+                isOwner={this._setCurrentUser(p._owner)}
+              />
             ))}
           </GoogleMap>
         </div>
@@ -66,9 +91,17 @@ class Home extends Component {
       </div>
     );
   }
+
   componentDidMount() {
-    api.getPins()
+    let user = api.loadUser()
+    console.log("USER", user)
+    this.setState({
+      currentUser: user
+    })
+    api
+      .getPins()
       .then(pins => {
+        console.log("PINS", pins)
         this.setState({
           pins: pins
         })

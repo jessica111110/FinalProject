@@ -57,14 +57,13 @@ class RectangleMarker extends Component {
   }
 
   render() {
-    console.log("DEBUGGGGGG this.props.address", this.state.zIndex)
     let borderColor = this.props.borderColor || '#f44336'
     return (
       <div style={{
         ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
       }} onMouseEnter={e => this.handleClickOnPin(e)} >
         {
-          this.state.zoomIn ? <EnlargedImage image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
+          this.state.zoomIn ? <EnlargedImage deletePin={this.props.deletePin} pinId={this.props.pinId} isOwner={this.props.isOwner} image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
         } < div > {this.props.children}</div >
       </div >
     );

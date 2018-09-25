@@ -23,7 +23,7 @@ class Home extends Component {
 
   handleInputChange(stateFieldName, event) {
     event.preventDefault();
-    if (stateFieldName === "tagFilter" && event.target.value == "All") {
+    if (stateFieldName === "tagFilter" && event.target.value === "All") {
       this.setState({
         [stateFieldName]: null
       })

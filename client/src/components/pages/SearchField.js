@@ -1,7 +1,5 @@
 
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import api from '../../api';
 import './Sample.css';
 
 class SearchField extends Component {

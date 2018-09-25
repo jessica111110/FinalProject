@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import {
 
-import { Route, Link, Switch } from 'react-router-dom';
+  Route, Link, Switch
+} from 'react-router-dom';
 import Home from './pages/Home';
 // import Countries from './pages/Countries';
 import AddPic from './pages/AddPic';
@@ -27,16 +28,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <Navbar color="dark" light expand="md">
-          <NavbarBrand href="/"></NavbarBrand>
-          <Link to="/">Home</Link>
+        <header className="App-header">
+          <h1 className="App-title">maepic</h1>
+          <Link to="/" exact >Home</Link>
           <Link to="/list-view">List view</Link>
           {api.isLoggedIn() ? <Link to="/add-picture">Add Picture</Link> : <Link to="/login">Add Picture</Link>}
           {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
           {!api.isLoggedIn() && <Link to="/login">Login</Link>}
           {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
-        </Navbar>
+
+        </header>
+
 
         <Switch>
           <Route path="/" exact component={Home} />

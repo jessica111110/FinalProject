@@ -28,11 +28,14 @@ const greatPlaceStyle = {
 
 class RectangleMarker extends Component {
   render() {
+    console.log("DEBUGGGGGG this.props.address", this.props.address)
     let borderColor = this.props.borderColor || '#f44336'
     return (
+
       <div style={{ ...greatPlaceStyle, borderColor: borderColor }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
         {<img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
-        }        <div>{this.props.children}</div>
+        }
+        {this.props.children}
       </div>
     );
   }

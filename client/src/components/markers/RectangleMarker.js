@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EnlargedImage from './EnlargedImage';
+import '../../index.css'
 
 const K_WIDTH = 125;
 const K_HEIGHT = 100;
@@ -13,7 +14,7 @@ const greatPlaceStyle = {
   borderRadius: 15,
   left: -K_WIDTH / 2,
   top: -K_HEIGHT / 2,
-
+  zIndex: 0,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -32,6 +33,7 @@ class RectangleMarker extends Component {
     super(props)
     this.state = {
       zoomIn: false,
+      zIndex: 0
     }
     // api.loadUser();  
     this.handleClickOnPin = this.handleClickOnPin.bind(this)
@@ -41,25 +43,30 @@ class RectangleMarker extends Component {
   handleClickOnPin(event) {
     event.preventDefault();
     this.setState({
-      zoomIn: true
+      zoomIn: true,
+      zIndex: 1
     })
   }
 
   leavePin(event) {
     event.preventDefault();
     this.setState({
-      zoomIn: false
+      zoomIn: false,
+      zIndex: 0
     })
   }
 
   render() {
+    console.log("DEBUGGGGGG this.props.address", this.state.zIndex)
     let borderColor = this.props.borderColor || '#f44336'
-
     return (
-      <div style={{ ...greatPlaceStyle, borderColor: borderColor }} onMouseEnter={e => this.handleClickOnPin(e)} >
-        {this.state.zoomIn ? <EnlargedImage image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
-        }        <div>{this.props.children}</div>
-      </div>
+      <div style={{
+        ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
+      }} onMouseEnter={e => this.handleClickOnPin(e)} >
+        {
+          this.state.zoomIn ? <EnlargedImage image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
+        } < div > {this.props.children}</div >
+      </div >
     );
   }
 }

@@ -8,8 +8,7 @@ import PlacesAutocomplete, {
 import { Input } from 'reactstrap';
 
 
-
-class AddPic extends Component {
+class EditPic extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -81,7 +80,7 @@ class AddPic extends Component {
 
   render() {
     return (
-      <div className="AddPic">
+      <div className="EditPic">
         <h2>Choose your Picture</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br />
@@ -103,7 +102,7 @@ class AddPic extends Component {
   }
 }
 
-export default AddPic;
+export default EditPic;
 
 class LocationSearchInput extends React.Component {
   constructor(props) {

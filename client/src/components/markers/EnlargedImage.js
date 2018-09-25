@@ -12,7 +12,6 @@ const greatPlaceStyle = {
   borderRadius: 15,
   left: -K_WIDTH / 2,
   top: -K_HEIGHT / 2,
-
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -30,9 +29,14 @@ class EnlargedImage extends Component {
   render() {
     let borderColor = this.props.borderColor || '#f44336'
     return (
-      <div style={{ ...greatPlaceStyle, borderColor: borderColor }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
-        {<img src={this.props.image} width="400" height="300" objectfit="cover" alt="test" />
-        }        <div>{this.props.children}</div>
+      <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
+        {<div style={{ position: "relative" }}>
+          <img src={this.props.image} width="400" height="300" objectfit="cover" alt="test" />
+          <button style={{ position: "absolute", top: "8%", left: "85%" }}>Edit</button>
+          <button style={{ position: "absolute", top: "8%", left: "70%" }}>DEL</button>
+        </div>
+        }
+        <div>{this.props.children}</div>
       </div>
     );
   }

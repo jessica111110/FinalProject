@@ -52,7 +52,8 @@ class Home extends Component {
                 key={i}
                 image={p.image}
                 lat={p.lat} lng={p.long}
-                borderColor="red">
+                borderColor="red"
+              >
               </RectangleMarker>
             ))}
           </GoogleMap>

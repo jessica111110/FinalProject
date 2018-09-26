@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #DF7373;
-  padding: 20px;
+  padding: 50px;
   color: white;
 }
 
@@ -36,6 +36,45 @@
   }
 }
 
-img{
-  size: 50%;
+.Home-link {
+  color: white;
+  float: left;
 }
+
+img{
+  width: 12vw;
+  position: centered;
+
+}
+
+.Logo {
+  position: centered;
+  size: 5px;
+  text-align: center;
+ 
+}
+
+.Navbar {
+  /* opacity: 0.5; */
+  background-color: #e56969 !important;
+}
+.Navbar .NavButton {
+  color: #ffffff !important;
+}
+
+.Navlink {
+  color: #ffffff !important;
+}
+
+/* .Maepic-col {
+  background-color: #DF7373;
+} */
+
+
+/* .navbar {
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	border-right: 1px solid #54879d;
+} */

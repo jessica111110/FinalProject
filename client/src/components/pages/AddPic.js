@@ -17,7 +17,7 @@ class AddPic extends Component {
       lat: null,
       long: null,
       address: "",
-      tag: null,
+      tag: "Beach",
     }
 
     // if add picture requested and user is not logged in, user will be directed to login
@@ -58,7 +58,7 @@ class AddPic extends Component {
       })
     }
     else {
-      // console.log("evnttagertevaluename", event.target.files.name)
+      console.log("evnttagertevalue evtl tag", event.target.value)
       this.setState({
         [stateFieldName]: event.target.value
       })
@@ -95,7 +95,7 @@ class AddPic extends Component {
           {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags 1:
-          <Input type="select" name="select" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
+          <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
             {["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el) =>
               (<option value={el}>{el}</option>))
             }
@@ -130,7 +130,6 @@ class LocationSearchInput extends React.Component {
   };
 
   render() {
-    console.log("DEBUGGGG")
     return (
 
       <PlacesAutocomplete

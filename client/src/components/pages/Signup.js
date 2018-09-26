@@ -8,6 +8,7 @@ class Signup extends Component {
     this.state = {
       username: "",
       password: "",
+      message: null
     }
   }
 
@@ -28,9 +29,8 @@ class Signup extends Component {
         console.log('SUCCESS!')
         this.props.history.push("/login") // Redirect to the login page
       })
-      .catch(err => {
-        console.log('ERROR')
-      })
+      .catch(err => this.setState({ message: err.response.data.message }))
+
   }
 
   render() {
@@ -42,6 +42,9 @@ class Signup extends Component {
           Password: <input type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
+        {this.state.message && <div className="info info-danger">
+          {this.state.message}
+        </div>}
         <Link to="/login">Already have an account? Login here.</Link>
       </div>
     );

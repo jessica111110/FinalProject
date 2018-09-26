@@ -11,18 +11,18 @@ class PlusButton extends Component {
     super(props)
     this.state = {
     }
-    this.handleClick = this.handleClick.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
   }
-  handleClick(event) {
-    event.preventDefault();
-    api.isLoggedIn ? this.props.history.push("/add-picture") : this.props.history.push("/")
-  }
+  // handleClick(event) {
+  //   event.preventDefault();
+  //   api.isLoggedIn ? this.props.history.push("/add-picture") : this.props.history.push("/")
+  // }
 
   render() {
     return (
       <div className="PlusButton">
-        {/* {api.isLoggedIn() ? <button><Link to="/add-picture">+</Link></button> : <button><Link to="/login">+</Link></button>} */}
-        <button onClick={(e) => this.handleClick(e)}>+</button>
+        {api.isLoggedIn() ? <button><Link to="/add-picture">+</Link></button> : <button><Link to="/login">+</Link></button>}
+        {/* <button onClick={(e) => this.handleClick(e)}>+</button> */}
       </div>
     );
   }

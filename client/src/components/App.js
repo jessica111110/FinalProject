@@ -12,7 +12,9 @@ import {
   NavItem,
 } from 'reactstrap';
 import Home from './pages/Home';
+import List from './pages/List';
 import AddPic from './pages/AddPic';
+import EditPic from './pages/EditPic';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
@@ -74,11 +76,12 @@ class App extends Component {
         </Navbar>
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/countries" component={Countries} />
-          <Route path="/add-country" component={AddCountry} /> */}
-          <Route path="/add-picture" component={AddPic} />
+          {/* <Route path="/countries" component={Countries} /> */}
+          <Route path="/list-view" component={List} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/edit-picture" component={EditPic} />
+          <Route path="/add-picture" component={AddPic} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
       </div>

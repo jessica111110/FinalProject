@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import EnlargedImage from './EnlargedImage';
 import '../../index.css'
 
-const K_WIDTH = 125;
-const K_HEIGHT = 100;
+const K_WIDTH = 100;
+const K_HEIGHT = 80;
 
 const greatPlaceStyle = {
   // initially any map object has left top corner at lat lng coordinates
@@ -19,7 +19,7 @@ const greatPlaceStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
-  border: '5px solid',
+  border: '1px solid',
   // borderRadius: K_HEIGHT,
   backgroundColor: 'white',
   color: '#3f51b5',
@@ -57,13 +57,13 @@ class RectangleMarker extends Component {
   }
 
   render() {
-    let borderColor = this.props.borderColor || '#f44336'
+    let borderColor = 'transparent'
     return (
       <div style={{
         ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
       }} onMouseEnter={e => this.handleClickOnPin(e)} >
         {
-          this.state.zoomIn ? <EnlargedImage deletePin={this.props.deletePin} pinId={this.props.pinId} isOwner={this.props.isOwner} image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="125" height="100" objectfit="cover" alt="test" />
+          this.state.zoomIn ? <EnlargedImage deletePin={this.props.deletePin} pinId={this.props.pinId} isOwner={this.props.isOwner} image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="110" height="90" borderRadius="15" style={{}} objectfit="cover" alt="test" />
         } < div > {this.props.children}</div >
       </div >
     );

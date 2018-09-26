@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../api';
 import '../App.css';
-import RectangleMarker from '../markers/RectangleMarker';
 import PlusButton from '../pages/PlusButton';
 import SearchField from '../pages/SearchField';
-import GoogleMap from 'google-map-react';
 
 
 class List extends Component {
@@ -20,7 +18,7 @@ class List extends Component {
 
   handleInputChange(stateFieldName, event) {
     event.preventDefault();
-    if (stateFieldName === "tagFilter" && event.target.value == "All") {
+    if (stateFieldName === "tagFilter" && event.target.value === "All") {
       this.setState({
         [stateFieldName]: null
       })
@@ -42,7 +40,7 @@ class List extends Component {
             return p.tag === this.state.tagFilter
           }
         }).map((p, i) => (
-          <img src={p.image} alt="test" />
+          <img key={i} src={p.image} width="450" height="400" objectfit="cover" alt="test" alt="test" />
         ))}
       </div>
     );

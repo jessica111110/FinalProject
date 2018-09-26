@@ -43,14 +43,12 @@
 
 img{
   size: 50%;
-  max-width: 300px;
 }
 
 .Logo {
   position: centered;
   size: 5px;
   text-align: center;
- 
 }
 
 .Navbar {

@@ -47,16 +47,16 @@ router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
 });
 
 //Route to edit a pin
-router.patch('/:id', isLoggedIn, parser.single("image"), (req, res, next) => {
-  let updatedImage;
-  if (req.file) {
-    updatedImage = req.file.secure_url
-  }
-  else {
-    updatedImage = req.body.image
-  }
+router.patch('/:id', isLoggedIn, (req, res, next) => {
+  // let updatedImage;
+  // if (req.file) {
+  //   updatedImage = req.file.secure_url
+  // }
+  // else {
+  //   updatedImage = req.body.image
+  // }
   const { lat, long, address, country, tag } = req.body;
-  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, country, tag, image: updatedImage } }, { new: true, runValidators: true })
+  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, country, tag } }, { new: true, runValidators: true })
     .then((pin) => {
       res.json({
         success: true,

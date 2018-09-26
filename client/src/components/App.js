@@ -80,7 +80,7 @@ class App extends Component {
           <Route path="/list-view" component={List} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
-          <Route path="/edit-picture" component={EditPic} />
+          <Route path="/edit-picture/:id" component={EditPic} />
           <Route path="/add-picture" component={AddPic} />
           <Route render={() => <h2>404</h2>} />
         </Switch>

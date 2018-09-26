@@ -1,7 +1,5 @@
 
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import api from '../../api';
 import './Sample.css';
 
 class SearchField extends Component {
@@ -26,9 +24,9 @@ class SearchField extends Component {
         <form action="">
           <select type="select" name="select" id="exampleSelect" onChange={(e) => this.props.handleInputChange("tagFilter", e)}>
             {/* <option value="null">All</option> */}
-            {this.state.tags.map((el) =>
+            {this.state.tags.map((el, i) =>
               (
-                <option value={el}>{el}</option>
+                <option key={i} value={el}>{el}</option>
               ))
             }
           </select>

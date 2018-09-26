@@ -30,7 +30,6 @@ class SearchField extends Component {
               ))
             }
           </select>
-          <button type="submit">SEARCH</button>
         </form >
       </div>
     );

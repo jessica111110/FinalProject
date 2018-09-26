@@ -27,17 +27,14 @@ router.get('/', (req, res, next) => {
 
 // Route to add a pin
 router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
-  console.log("toto")
+  if (!req.file) res.status(401).json({ message: "Please, upload a picture" });
   const image = req.file ? req.file.url : req.body.image
   const { lat, long, address, country, tag } = req.body;
   const newPin = new Pin({
     lat, long, address, country, tag, _owner: req.user._id, image
   })
-
-  console.log("newPin: ", newPin)
   newPin.save()
     .then((pin) => {
-      console.log("The pin was saved!!!");
       res.json({
         success: true,
         pin

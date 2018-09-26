@@ -123,7 +123,9 @@ export default EditPic;
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: this.props.value };
+    this.state = {
+      address: this.props.value
+    };
   }
 
   // handleChange = address => {

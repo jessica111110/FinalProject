@@ -25,7 +25,6 @@ class RadioFields extends Component {
         {/* <form action=""> */}
         <input type="radio" name="display" checked={this.state.showOnlyMyPins} value="Mine" onChange={e => this.handleChange(e)} /> Mine
           <input type="radio" name="display" checked={!this.state.showOnlyMyPins} value="All" onChange={e => this.handleChange(e)} /> All
-          <button type="submit">FILTER</button>
         {/* </form > */}
       </div>
     );

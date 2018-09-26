@@ -4,6 +4,7 @@ import '../App.css';
 import RectangleMarker from '../markers/RectangleMarker';
 import PlusButton from '../pages/PlusButton';
 import SearchField from '../pages/SearchField';
+import RadioFields from '../pages/RadioFields';
 import GoogleMap from 'google-map-react';
 
 
@@ -12,26 +13,33 @@ class Home extends Component {
     super(props)
     this.state = {
       pins: [],
-      tagFilter: null,
+      tagFilter: "",
+      showOnlyMyPins: false,
       currentUser: "",
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
     this._setCurrentUser = this._setCurrentUser.bind(this)
     this.deletePin = this.deletePin.bind(this)
+    this.handleFilterMineOrAll = this.handleFilterMineOrAll.bind(this)
   }
 
   handleInputChange(stateFieldName, event) {
     event.preventDefault();
     if (stateFieldName === "tagFilter" && event.target.value === "All") {
       this.setState({
-        [stateFieldName]: null
+        [stateFieldName]: ""
       })
       return;
     }
     this.setState({
       [stateFieldName]: event.target.value
     })
+  }
+
+  handleFilterMineOrAll(stateFieldName, event) {
+    event.target.value === "Mine" && this.setState({ [stateFieldName]: true })
+    event.target.value === "All" && this.setState({ [stateFieldName]: false })
   }
 
   _setCurrentUser(pinOwner) {
@@ -58,6 +66,7 @@ class Home extends Component {
     return (
       <div className="Home">
         <PlusButton />
+        {api.isLoggedIn() && <RadioFields showOnlyMyPins={this.state.showOnlyMyPins} handleFilterMineOrAll={this.handleFilterMineOrAll} />}
         <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
         <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
           <GoogleMap
@@ -66,9 +75,23 @@ class Home extends Component {
             center={{ lat: 0.56, lng: 18.80 }}
             zoom={0.1}>
             {this.state.pins.filter(p => {
-              if (this.state.tagFilter === null) return true
-              else if (this.state.tagFilter !== "") {
+              if (this.state.tagFilter === "" && !this.state.showOnlyMyPins) {
+                console.log("allpins, no tagfilter")
+                return true
+              }
+              else if (this.state.tagFilter !== "" && !(this.state.showOnlyMyPins)) {
+                console.log("pinsofallowners,certaintag", p.tag === this.state.tagFilter)
                 return p.tag === this.state.tagFilter
+              }
+              else if (this.state.tagFilter !== "" && this.state.showOnlyMyPins) {
+                console.log("mypins,certaintag", p._owner === this.state.currentUser._id && p.tag === this.state.tagFilter)
+                return p.tag === this.state.tagFilter && p._owner === this.state.currentUser._id
+              }
+              else if (this.state.showOnlyMyPins && this.state.tagFilter === "") {
+                console.log("mypins only", p._owner === this.state.currentUser._id)
+                console.log("owner", p._owner)
+                console.log("currentuser", this.state.currentUser._id)
+                return p._owner === this.state.currentUser._id
               }
             }).map((p, i) => (
               <RectangleMarker

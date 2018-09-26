@@ -40,7 +40,6 @@ class App extends Component {
 
         </header>
 
-
         <Switch>
           <Route path="/" exact component={Home} />
           {/* <Route path="/countries" component={Countries} /> */}

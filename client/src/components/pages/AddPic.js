@@ -25,6 +25,13 @@ class AddPic extends Component {
       acceptGeolocation: false,
       declineGeolocation: false
     }
+
+    // if add picture requested and user is not logged in, user will be directed to login
+    if (!api.isLoggedIn()) {
+      this.props.history.push("/login")
+      return;
+    }
+
     this.handleSelect = this.handleSelect.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)

@@ -63,7 +63,22 @@ class RectangleMarker extends Component {
         ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
       }} onMouseEnter={e => this.handleClickOnPin(e)} >
         {
-          this.state.zoomIn ? <EnlargedImage deletePin={this.props.deletePin} pinId={this.props.pinId} isOwner={this.props.isOwner} image={this.props.image} onMouseLeave={e => this.leavePin(e)} /> : <img src={this.props.image} width="110" height="90" borderRadius="15" style={{}} objectfit="cover" alt="test" />
+          this.state.zoomIn
+            ? <EnlargedImage
+              deletePin={this.props.deletePin}
+              pinId={this.props.pinId}
+              isOwner={this.props.isOwner}
+              image={this.props.image}
+              onMouseLeave={e => this.leavePin(e)} />
+            : <img src={this.props.image}
+
+              style={{
+                width: 110,
+                height: 90,
+                borderRadius: 15,
+                objectFit: "cover"
+              }}
+              alt="test" />
         } < div > {this.props.children}</div >
       </div >
     );

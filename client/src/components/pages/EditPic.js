@@ -158,7 +158,7 @@ class LocationSearchInput extends React.Component {
             />
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
-              {suggestions.map(suggestion => {
+              {suggestions.map((suggestion, i) => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
@@ -167,7 +167,7 @@ class LocationSearchInput extends React.Component {
                   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
                 return (
-                  <div
+                  <div key={i}
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,

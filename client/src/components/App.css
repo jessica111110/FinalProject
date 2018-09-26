@@ -42,9 +42,8 @@
 }
 
 img{
-  width: 12vw;
-  position: centered;
-
+  size: 50%;
+  max-width: 300px;
 }
 
 .Logo {

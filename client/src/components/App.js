@@ -55,7 +55,7 @@ class App extends Component {
             <Nav className="sm-auto" navbar>
               <NavItem>
                 <NavLink className="nav-link" to="/" exact>
-                  {<img className="Logo" src="/maepic_w_transparent.png" alt="Logo" />}
+                  {<img className="img-logo" src="/maepic_w_transparent.png" alt="Logo" />}
                 </NavLink>
               </NavItem>
               <NavItem>

@@ -32,7 +32,7 @@ class EnlargedImage extends Component {
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
         {<div style={{ position: "relative", width: "400px", height: "300px" }}>
-          <img src={this.props.image} objectfit="cover" alt="test" />
+          <img className="imagePin" src={this.props.image} objectfit="cover" alt="test" />
           {this.props.isOwner && <div>
             <button style={{ position: "absolute", top: "8%", left: "85%" }}><Link to={"/edit-picture/" + this.props.pinId._id}>Edit</Link></button>
             <button style={{ position: "absolute", top: "8%", left: "70%" }} onClick={e => this.props.deletePin(e, this.props.pinId)}>DEL</button></div>}

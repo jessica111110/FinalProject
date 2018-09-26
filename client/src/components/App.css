@@ -41,8 +41,14 @@
   float: left;
 }
 
-img{
-  size: 50%;
+.img-logo{
+  width: 12vw;
+  position: centered;
+
+}
+
+.imagePin{
+size: 50%
 }
 
 .Logo {

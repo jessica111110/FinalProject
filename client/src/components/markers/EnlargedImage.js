@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 const K_WIDTH = 400;
 const K_HEIGHT = 300;
@@ -31,10 +31,10 @@ class EnlargedImage extends Component {
     let borderColor = this.props.borderColor || '#f44336'
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
-        {<div style={{ position: "relative", width: "400px", height: "300px" }}>
-          <img className="imagePin" src={this.props.image} objectfit="cover" alt="test" />
+        {<div style={{ position: "relative" }}>
+          <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover" }} />
           {this.props.isOwner && <div>
-            <button style={{ position: "absolute", top: "8%", left: "85%" }}><Link to={"/edit-picture/" + this.props.pinId._id}>Edit</Link></button>
+            <button style={{ position: "absolute", top: "8%", left: "85%" }}><Link to="/edit-picture">Edit</Link></button>
             <button style={{ position: "absolute", top: "8%", left: "70%" }} onClick={e => this.props.deletePin(e, this.props.pinId)}>DEL</button></div>}
         </div>
         }

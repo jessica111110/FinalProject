@@ -35,9 +35,9 @@ class EnlargedImage extends Component {
           <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
           {this.props.isOwner && <div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
-              <img src="/images/Edit-Icon.png" style={{ width: "45px" }} alt="t" />
+              <img className="Icon" src="/edit_w.png" style={{ width: "45px" }} alt="t" />
             </Link>
-            <img src="/images/Delete-Icon.png" style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
+            <img className="Icon" src="/trash_w.png" style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
         </div>
         }
         <div>{this.props.children}</div>

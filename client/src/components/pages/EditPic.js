@@ -5,7 +5,7 @@ import PlacesAutocomplete, {
   // geocodeByPlaceId,
   getLatLng,
 } from 'react-places-autocomplete';
-import { Input } from 'reactstrap';
+import { Jumbotron, Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 
 class EditPic extends Component {
@@ -82,24 +82,37 @@ class EditPic extends Component {
   render() {
     return (
       <div className="EditPic">
-        <h3>Edit your Pin</h3>
-        <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" />
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          {/* <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br /> */}
-          {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
-          {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
-          Tags:
-          <Input type="select" name="tag" id="exampleSelect" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)}>
-            {this.state.tags.map((el, i) =>
-              (<option value={el} key={i} >{el}</option>)
-            )}
-          </Input>
-          {/* Tags 2:
-          <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
-          <LocationSearchInput name="address" value={this.state.address} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
-          <button type="submit">Upload</button>
-        </form>
+        <Jumbotron className="jumbotronEdit">
+          <Row>
+            <Col md="6" sm="4">
+              <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" />
+              <Form dark onSubmit={(e) => this.handleSubmit(e)}>
+                <div className="EditForm">
+                  <h1 className="EditHeader">Edit your Pin</h1>
+                  <FormGroup row>
+                    <Label for="exampleEdit" className="mr-sm-1">Tags</Label>
+                    <Input type="select" name="tag" id="exampleEdit" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)}>
+                      {this.state.tags.map((el, i) =>
+                        (<option value={el} key={i} >{el}</option>)
+                      )}
+                    </Input>
+
+                    <Label for="exampleLocation" className="mr-sm-1">Tags</Label>
+                    <LocationSearchInput id="exampleLocation" name="address" value={this.state.address} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
+                    <Button type="submit" color="primary">Confirm changes</Button>
+                  </FormGroup>
+                </div>
+              </Form>
+            </Col>
+            <Col md="4"></Col>
+          </Row>
+        </Jumbotron>
       </div>
+
+
+
+
+
     );
   }
 

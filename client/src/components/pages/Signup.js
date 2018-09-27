@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { Row, Col, Button, Form, FormGroup, Input, Jumbotron, Label } from 'reactstrap';
 
 class Signup extends Component {
   constructor(props) {
@@ -35,20 +36,76 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="Signup">
-        <h2>Signup</h2>
-        <form>
-          Username: <input type="text" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} /> <br />
-          Password: <input type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Signup</button>
-        </form>
-        {this.state.message && <div className="info info-danger">
-          {this.state.message}
-        </div>}
-        <Link to="/login">Already have an account? Login here.</Link>
+      <div className="Login">
+        <Jumbotron className="jumbotronSignup">
+          <Row>
+            <Col md="6" sm="4">
+              <Form dark>
+                <div className="SignupForm">
+                  <h1 className="SignupHeader">Signup</h1>
+                  <FormGroup row>
+                    <Label for="exampleText" className="mr-sm-1">Email</Label>
+                    <Input type="text" id="exampleText" placeholder="your Name" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="examplePassword" className="mr-sm-1">Password</Label>
+                    <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
+                  </FormGroup>
+                  <FormGroup row>
+                    <Button type="submit" className="button" onClick={(e) => this.handleClick(e)}>Signup</Button>
+                    {this.state.message && <div className="info info-danger">
+                      {this.state.message}
+                    </div>}
+                  </FormGroup>
+                </div>
+              </Form>
+              <NavLink className="nav-link" to="/login">Already have an account? Login here.</NavLink>
+            </Col>
+            <Col md="4"></Col>
+          </Row>
+        </Jumbotron>
       </div>
-    );
+
+
+
+
+
+
+
+
+
+
+    )
   }
 }
 
 export default Signup;
+
+{/* <Jumbotron className="jumbotronSignup">
+          <Row>
+            <Col md="4" xs="6" sm="6">
+              <div className="LoginBlock">
+                <div className="loginFormHeader"><h2>Signup</h2>
+                </div>
+                <Form dark>
+                  <FormGroup row>
+                    <Label for="exampleText" className="mr-sm-2">Email</Label>
+                    <Input type="text" id="exampleText" placeholder="your Name" type="text" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="examplePassword" className="mr-sm-2">Password</Label>
+                    <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
+                  </FormGroup>
+                  <FormGroup row>
+                    <Button type="submit" className="button" onClick={(e) => this.handleClick(e)}>Signup</Button>
+                    {this.state.message && <div className="info info-danger">
+                      {this.state.message}
+                    </div>}
+                  </FormGroup>
+                </Form>
+              </div>
+              <NavLink className="nav-link" to="/login">Already have an account? Login here.</NavLink>
+            </Col>
+            <Col md="4"></Col>
+          </Row>
+        </Jumbotron> */}

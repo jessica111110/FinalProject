@@ -18,7 +18,8 @@ class AddPic extends Component {
       tag: "Beach",
       askGeolocation: true,
       acceptGeolocation: false,
-      declineGeolocation: false
+      declineGeolocation: false,
+      message: null,
     }
 
     // if add picture requested and user is not logged in, user will be directed to login
@@ -102,6 +103,7 @@ class AddPic extends Component {
       })
       .catch(err => {
         console.log('ERROR')
+        this.setState({ message: err.response.data.message })
       })
   }
 
@@ -125,6 +127,9 @@ class AddPic extends Component {
           <LocationSearchInput name="address" onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
           <button type="submit">Upload</button>
         </form>
+        {this.state.message && <div className="info info-danger">
+          {this.state.message}
+        </div>}
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'reactstrap';
 import api from '../../api';
 import '../App.css';
 import PlusButton from '../pages/PlusButton';
@@ -49,19 +50,25 @@ class List extends Component {
 
   render() {
     return (
+
       <div className="List">
         <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
-        {this.state.pins.filter(p => {
-          if (this.state.tagFilter === null) return true
-          else if (this.state.tagFilter !== "") {
-            return p.tag === this.state.tagFilter
-          }
-        }).map((p, i) => (
-          <div key={i} className="ListView">
-            <img src={p.image} onMouseEnter={e => this.handleHoverOverPic(e, i)} onMouseLeave={e => this.handleLeaveOverPic(e, i)} width="450" height="400" objectfit="cover" alt="test" />
-            {this.state.showInfo && i === this.state.key && <p>{p.address}</p>}
-          </div>
-        ))}
+        <div className="flex">
+          {this.state.pins.filter(p => {
+            if (this.state.tagFilter === null) return true
+            else if (this.state.tagFilter !== "") {
+              return p.tag === this.state.tagFilter
+            }
+          }).map((p, i) => (
+            <div key={i} className="ListView">
+              <img src={p.image} onMouseEnter={e => this.handleHoverOverPic(e, i)} onMouseLeave={e => this.handleLeaveOverPic(e, i)} alt="test" />
+              {this.state.showInfo && i === this.state.key && <p>{p.address}</p>}
+            </div>
+          ))}
+        </div>
+
+
+
       </div>
     );
   }

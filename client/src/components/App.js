@@ -76,26 +76,26 @@ class App extends Component {
           <Nav className="ml-auto" navbar>
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="sm-auto" navbar>
-                {this.state.mapDisplayed && <NavItem><NavLink className="nav-link" to="/list-view">
+                {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_w.png" alt="List" />}
                 </NavLink></NavItem>}
-                {!this.state.mapDisplayed && <NavItem><NavLink className="nav-link" exact to="/">
+                {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" />}
                 </NavLink></NavItem>}
-                <NavItem>
-                  <p>
-                    {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src="/camera_w.png" alt="Add Pic" />}</NavLink>
-                    {!api.isLoggedIn() && <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggle}>Please log in first</Tooltip>}
-                  </p>
+                <NavItem className="d-flex align-items-center">
+
+                  {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src="/camera_w.png" alt="Add Pic" />}</NavLink>
+                  {!api.isLoggedIn() && <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggle}>Please log in first</Tooltip>}
+
                 </NavItem>
-                <NavItem>{!api.isLoggedIn() && <NavLink className="nav-link" to="/signup">Signup</NavLink>}</NavItem>
-                <NavItem>{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
-                <NavItem>{api.isLoggedIn() && <NavLink className="nav-link" to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</NavLink>}</NavItem>
+                <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/signup">Signup</NavLink>}</NavItem>
+                <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
+                <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</NavLink>}</NavItem>
               </Nav>
             </Collapse>
           </Nav>
         </Navbar>
-        <div style={{ paddingTop: "70px" }}>
+        Name     <div style={{ paddingTop: "70px" }}>
           <Switch>
             <Route path="/" exact component={Home} />
             {/* <Route path="/countries" component={Countries} /> */}

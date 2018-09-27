@@ -43,11 +43,53 @@
 
 .formGroup {
   padding: 70px;
-  margin: 70px;}
-  
+  margin: 70px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.jumbotronLogin {
+  margin-bottom: 0px;
+  background-image: url(../components/ny.jpeg);
+  background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+.jumbotronEdit {
+  margin-bottom: 0px;
+  background-image: url(../components/ny.jpeg);
+  background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+
+.nav-link {
+  justify-content: center;
+}
+
+.jumbotronSignup {
+  margin-bottom: 0px;
+  background-image: url(../components/rome.jpeg);
+  background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
 .ListView{
   position: relative;
   text-align: center;
+  margin: 10px;
 }
 
 .ListView p{
@@ -73,12 +115,20 @@
 }
 
 .ListView img{
-  display: inline-block
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
 }
 
 .Home-link {
   color: white;
   float: left;
+}
+
+.Icon {
+  color: white;
+  box-shadow: #6d6c6c;
 }
 
 .img-cam {
@@ -106,10 +156,46 @@
 size: 50%
 }
 
-.loginFormHeader {
+/* .Link {
+  color: #ffffff !important;
+} */
+
+.LoginHeader {
+  color: white;
   position: absolute;
-  top: 35%;
+  top: 10%;
 }
+
+.SignupHeader{
+  color: white;
+  position: absolute;
+  top: 10%;
+}
+
+.EditHeader {
+  color: white;
+  position: absolute;
+  top: 10%;
+}
+
+
+.LoginForm {
+  margin:130px;
+}
+
+.SignupForm {
+  margin:130px;
+}
+
+.EditForm {
+  margin:130px;
+}
+
+
+.SignupDiv{
+  background-image: url(../components/rome.jpeg);
+}
+
 
 .Logo {
   position: centered;
@@ -119,6 +205,7 @@ size: 50%
 
 .mb-2 {
   position: relative;
+  float: left;
 }
 .ListView img{
   display: inline-block
@@ -137,6 +224,8 @@ size: 50%
   color: #ffffff !important;
 
 }
+
+
 
 /* .Maepic-col {
   background-color: #DF7373;

@@ -12,6 +12,7 @@ class EditPic extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      tags: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"],
       image: "",
       lat: null,
       long: null,
@@ -89,9 +90,9 @@ class EditPic extends Component {
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags:
           <Input type="select" name="tag" id="exampleSelect" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)}>
-            {["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el, i) =>
-              (<option value={el} key={i}>{el}</option>))
-            }
+            {this.state.tags.map((el, i) =>
+              (<option value={el} key={i} >{el}</option>)
+            )}
           </Input>
           {/* Tags 2:
           <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}

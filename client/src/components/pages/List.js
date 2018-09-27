@@ -58,7 +58,7 @@ class List extends Component {
             return p.tag === this.state.tagFilter
           }
         }).map((p, i) => (
-          <div className="ListView">
+          <div key={i} className="ListView">
             <img src={p.image} onMouseEnter={e => this.handleHoverOverPic(e, i)} onMouseLeave={e => this.handleLeaveOverPic(e, i)} width="450" height="400" objectfit="cover" alt="test" />
             {this.state.showInfo && i === this.state.key && <p>{p.address}</p>}
           </div>

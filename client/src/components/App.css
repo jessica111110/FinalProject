@@ -36,30 +36,65 @@
   }
 }
 
+.button.btn.btn-secondary {
+  background-color: #DF7373 !important;;
+  
+}
+
+.formGroup {
+  padding: 70px;
+  margin: 70px;
+}
+
 .Home-link {
   color: white;
   float: left;
 }
 
-.img-logo{
-  width: 12vw;
+.img-cam {
+  width: 30px;
   position: centered;
+  padding: 2px;
+  margin: 10px;
+}
 
+
+.img-list {
+  width: 30px;
+  position: centered;
+  padding: 2px;
+  margin: 10px;
+}
+
+
+.img-logo{
+  width: 150px;
+  position: centered;
 }
 
 .imagePin{
 size: 50%
 }
 
+.loginFormHeader {
+  position: absolute;
+  top: 35%;
+}
+
 .Logo {
   position: centered;
-  size: 5px;
+  size: 6px;
   text-align: center;
+}
+
+.mb-2 {
+  position: relative;
 }
 
 .Navbar {
   /* opacity: 0.5; */
   background-color: #e56969 !important;
+  position: fixedTop;
 }
 .Navbar .NavButton {
   color: #ffffff !important;
@@ -67,6 +102,7 @@ size: 50%
 
 .Navlink {
   color: #ffffff !important;
+
 }
 
 /* .Maepic-col {

@@ -76,11 +76,11 @@ class Home extends Component {
           </div>
         </div>
         <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
-          <GoogleMap
+          <GoogleMap className="googleMap"
             margin={[10, 20, 30, 40]}
             // apiKey={YOUR_GOOGLE_MAP_API_KEY}
-            center={{ lat: 0.56, lng: 18.80 }}
-            zoom={0.1}>
+            center={{ lat: 49.52, lng: 11.40 }}
+            zoom={4.1}>
             {this.state.pins.filter(p => {
               if (this.state.tagFilter === "" && !this.state.showOnlyMyPins) {
                 console.log("allpins, no tagfilter")

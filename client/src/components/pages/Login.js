@@ -64,7 +64,7 @@ class Login extends Component {
           <Link to="/signup">No account yet? Sign up here.</Link> */}
         <Jumbotron className="jumbotronLogin">
           <Row>
-            <Col md="6" sm="4">
+            <Col md="6" lg="4">
               <Form dark>
                 <div className="LoginForm">
                   <h1 className="LoginHeader">Login</h1>

@@ -37,7 +37,7 @@
 }
 
 .button.btn.btn-secondary {
-  background-color: #DF7373 !important;;
+  background-color: #DF7373 !important;
   
 }
 
@@ -179,18 +179,41 @@ size: 50%
 }
 
 
+.googleMap {
+  z-index: -100;
+}
+
 .LoginForm {
-  margin:130px;
+  margin:80px;
 }
 
 .SignupForm {
-  margin:130px;
+  margin:80px;
 }
 
 .EditForm {
-  margin:130px;
+  margin:80px;
 }
 
+.SearchFieldList{
+  margin:30px;
+
+}
+
+/* .input-group {
+  position: absolute;
+    left: 250px;
+    top: -65px;
+    z-index: -1;
+}
+
+
+.switch-field{
+  position: absolute;
+    left: 20px;
+    top: 50px;
+    z-index: -1;
+} */
 
 .SignupDiv{
   background-image: url(../components/rome.jpeg);

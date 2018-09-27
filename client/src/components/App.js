@@ -68,7 +68,7 @@ class App extends Component {
       <div>
         console.log({<img className="img-list" src="/list_w.psd" alt="List" />})
         {/* Navbar reactstrap */}
-        <Navbar className="Navbar" dark expand="md" fixed={`top`}>
+        <Navbar className="Navbar" dark expand fixed={`top`}>
           <NavbarBrand href="/" exact>
             {<img className="img-logo" src="/maepic_w_transparent.png" alt="Logo" />}
           </NavbarBrand>
@@ -95,7 +95,8 @@ class App extends Component {
             </Collapse>
           </Nav>
         </Navbar>
-        Name     <div style={{ paddingTop: "70px" }}>
+        Name < div style={{ paddingTop: "70px" }
+        }>
           <Switch>
             <Route path="/" exact component={Home} />
             {/* <Route path="/countries" component={Countries} /> */}
@@ -106,7 +107,7 @@ class App extends Component {
             <Route path="/add-picture" component={AddPic} />
             <Route render={() => <h2>404</h2>} />
           </Switch>
-        </div>
+        </div >
       </div >
     );
   }

@@ -52,7 +52,9 @@ class List extends Component {
     return (
 
       <div className="List">
-        <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
+        <div className="SearchFieldList">
+          <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
+        </div>
         <div className="flex">
           {this.state.pins.filter(p => {
             if (this.state.tagFilter === null) return true

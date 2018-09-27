@@ -22,7 +22,7 @@ class SearchField extends Component {
     return (
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <label className="input-group-text" for="inputGroupSelect01">Tags</label>
+          <label style={{ backgroundColor: "#DF7373" }} className="input-group-text" for="inputGroupSelect01"><img className="hashtagIcon" style={{ width: "18px" }} src="/hashtag_w.png" alt="k" /></label>
         </div>
         <select name="select" class="custom-select" id="inputGroupSelect01" onChange={(e) => this.props.handleInputChange("tagFilter", e)}>
           {this.state.tags.map((el, i) =>
@@ -31,7 +31,7 @@ class SearchField extends Component {
             ))
           }
         </select>
-      </div>
+      </div >
     );
   }
 }

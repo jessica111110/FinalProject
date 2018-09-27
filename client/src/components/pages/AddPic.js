@@ -109,7 +109,7 @@ class AddPic extends Component {
 
   render() {
     return (
-      <div className="AddPic container">
+      <div className="AddPic container" style={{ paddingTop: "60px" }}>
         <h1>Add picture</h1>
         <Form onSubmit={(e) => this.handleSubmit(e)}>
           <FormGroup row>

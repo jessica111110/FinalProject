@@ -37,7 +37,7 @@ class Signup extends Component {
         console.log('SUCCESS!')
         this.props.history.push("/login") // Redirect to the login page
       })
-      .catch(err => this.setState({ message: err.response.data.message }))
+      .catch(err => this.setState({ message: err.response && err.response.data.message }))
 
   }
 
@@ -51,12 +51,12 @@ class Signup extends Component {
                 <div className="SignupForm">
                   <h1 className="SignupHeader">Signup</h1>
                   <FormGroup row>
-                    <Label for="exampleText" className="mr-sm-1">Email</Label>
-                    <Input type="text" id="exampleText" placeholder="your Name" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
+                    <Label for="exampleText" className="mr-sm-1">Username</Label>
+                    <Input type="text" id="exampleText" placeholder="Choose a name" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
                   </FormGroup>
                   <FormGroup row>
                     <Label for="examplePassword" className="mr-sm-1">Password</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
+                    <Input type="password" name="password" id="examplePassword" placeholder="Choose wisely" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
                   </FormGroup>
                   <FormGroup row>
                     <Button type="submit" className="button" onClick={(e) => this.handleClick(e)}>Signup</Button>

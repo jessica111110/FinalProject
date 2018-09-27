@@ -64,7 +64,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="Home" style={{ paddingTop: "44px" }}>
         <div className="container">
           <div className="row">
             <div className="col-xs-6">
@@ -75,7 +75,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
+        <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 190px)' }}>
           <GoogleMap
             margin={[10, 20, 30, 40]}
             // apiKey={YOUR_GOOGLE_MAP_API_KEY}

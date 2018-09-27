@@ -61,6 +61,24 @@
     color: white;
 }
 
+.jumbotronLogin .nav-link{
+  color: white;
+  font-weight: 500
+}
+
+.jumbotronLogin .nav-link:hover{
+  font-weight: 700
+}
+
+.jumbotronSignup .nav-link{
+  color: white;
+  font-weight: 500
+}
+
+.jumbotronSignup .nav-link:hover{
+  font-weight: 700
+}
+
 
 .jumbotronEdit {
   margin-bottom: 0px;

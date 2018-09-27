@@ -95,7 +95,7 @@ class App extends Component {
             </Collapse>
           </Nav>
         </Navbar>
-        Name     <div style={{ paddingTop: "70px" }}>
+        Name     <div>
           <Switch>
             <Route path="/" exact component={Home} />
             {/* <Route path="/countries" component={Countries} /> */}

@@ -51,7 +51,7 @@ class List extends Component {
   render() {
     return (
 
-      <div className="List">
+      <div className="List" style={{ paddingTop: "60px" }}>
         <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
         <div className="flex">
           {this.state.pins.filter(p => {

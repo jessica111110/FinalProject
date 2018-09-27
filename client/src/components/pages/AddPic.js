@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  // geocodeByPlaceId,
-  getLatLng,
-} from 'react-places-autocomplete';
 import { Input } from 'reactstrap';
-
+import GeolocateUser from '../pages/GeolocateUser';
+import LocationSearchInput from './LocationSearchInput';
+import Geocode from "react-geocode";
 
 
 class AddPic extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      filterTag: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"],
       image: "",
       lat: null,
       long: null,
       address: "",
       tag: "Beach",
+      askGeolocation: true,
+      acceptGeolocation: false,
+      declineGeolocation: false
     }
 
     // if add picture requested and user is not logged in, user will be directed to login
@@ -30,10 +31,10 @@ class AddPic extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChangeAdress = this.handleChangeAdress.bind(this)
+    this.handleGeolocation = this.handleGeolocation.bind(this)
   }
 
   handleSelect(latLng) {
-    console.log("handle select", latLng)
     this.setState({
       lat: latLng.lat,
       long: latLng.lng,
@@ -65,9 +66,28 @@ class AddPic extends Component {
     }
   }
 
+  handleGeolocation(lat, long) {
+    this.setState({
+      lat: lat,
+      long: long
+    })
+    console.log("lat, long", lat, long)
+    Geocode.fromLatLng(lat, long).then(
+      response => {
+        const address = response.results[0].formatted_address;
+        this.setState({
+          address: address
+        })
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    //do sth to convert lat/long in address!!
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-
     let pin = {
       lat: this.state.lat,
       long: this.state.long,
@@ -75,7 +95,6 @@ class AddPic extends Component {
       image: this.state.image,
       tag: this.state.tag
     }
-    console.log("PIN", pin)
     api.postPin(pin)
       .then(result => {
         console.log('ADD PIC SUCCESS!', result)
@@ -96,12 +115,13 @@ class AddPic extends Component {
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags 1:
           <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
-            {["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el, i) =>
+            {this.state.filterTag.map((el, i) =>
               (<option key={i} value={el}>{el}</option>))
             }
           </Input>
           {/* Tags 2:
           <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
+          <GeolocateUser acceptGeolocation={this.state.acceptGeolocation} lat={this.state.lat} long={this.state.long} handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} />
           <LocationSearchInput name="address" onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
           <button type="submit">Upload</button>
         </form>
@@ -111,65 +131,3 @@ class AddPic extends Component {
 }
 
 export default AddPic;
-
-class LocationSearchInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { address: '' };
-  }
-
-  // handleChange = address => {
-  //   this.setState({ address });
-  // };
-
-  handleSelect = address => {
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => this.props.onSelect(latLng))
-      .catch(error => console.error('Error', error));
-  };
-
-  render() {
-    return (
-
-      <PlacesAutocomplete
-        value={this.props.address}
-        onChange={this.props.handleChangeAdress}
-        onSelect={this.handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-            />
-            <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
-              {suggestions.map((suggestion, i) => {
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                return (
-                  <div key={i}
-                    {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
-                    })}
-                  >
-                    <span>{suggestion.description}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
-    );
-  }
-}

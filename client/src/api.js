@@ -82,7 +82,6 @@ export default {
       .get('/logout')
   },
 
-
   loadUser() {
     const userData = localStorage.getItem('user');
     if (!userData) return false;
@@ -93,33 +92,4 @@ export default {
   isLoggedIn() {
     return localStorage.getItem('user') != null
   },
-
-  addPicture(file) {
-    const formData = new FormData();
-    formData.append("image", file)
-    return service
-      .post('/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
-  addProfilePicture(file) {
-    const formData = new FormData();
-    formData.append("image", file)
-    return service
-      .patch('/:id', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
-
-
 };

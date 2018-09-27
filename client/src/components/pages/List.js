@@ -10,10 +10,14 @@ class List extends Component {
     super(props)
     this.state = {
       pins: [],
-      tagFilter: null
+      tagFilter: null,
+      showInfo: false,
+      key: null
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleHoverOverPic = this.handleHoverOverPic.bind(this)
+    this.handleLeaveOverPic = this.handleLeaveOverPic.bind(this)
   }
 
   handleInputChange(stateFieldName, event) {
@@ -29,6 +33,20 @@ class List extends Component {
     })
   }
 
+  handleHoverOverPic(e, key) {
+    this.setState({
+      showInfo: true,
+      key: key
+    })
+  }
+
+  handleLeaveOverPic(e, key) {
+    this.setState({
+      showInfo: false,
+      key: key
+    })
+  }
+
   render() {
     return (
       <div className="List">
@@ -40,7 +58,10 @@ class List extends Component {
             return p.tag === this.state.tagFilter
           }
         }).map((p, i) => (
-          <img key={i} src={p.image} width="450" height="400" objectfit="cover" alt="test" alt="test" />
+          <div key={i} className="ListView">
+            <img src={p.image} onMouseEnter={e => this.handleHoverOverPic(e, i)} onMouseLeave={e => this.handleLeaveOverPic(e, i)} width="450" height="400" objectfit="cover" alt="test" />
+            {this.state.showInfo && i === this.state.key && <p>{p.address}</p>}
+          </div>
         ))}
       </div>
     );

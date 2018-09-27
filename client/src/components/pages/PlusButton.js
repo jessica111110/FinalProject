@@ -21,11 +21,10 @@ class PlusButton extends Component {
   render() {
     return (
       <div className="PlusButton">
-        {api.isLoggedIn() ? <button><Link to="/add-picture">+</Link></button> : <button><Link to="/login">+</Link></button>}
+        {api.isLoggedIn() ? <Link to="/add-picture"><button>+</button></Link> : <Link to="/login"><button>+</button></Link>}
         {/* <button onClick={(e) => this.handleClick(e)}>+</button> */}
       </div>
     );
   }
 }
-
 export default PlusButton;

@@ -43,7 +43,26 @@
 
 .formGroup {
   padding: 70px;
-  margin: 70px;
+  margin: 70px;}
+  
+.ListView{
+  position: relative;
+  text-align: center;
+}
+
+.ListView p{
+  color: white;
+  font-weight:bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 30px #6d6c6c;
+  font-size:180%;
+}
+
+.ListView img{
+  display: inline-block
 }
 
 .Home-link {
@@ -89,6 +108,9 @@ size: 50%
 
 .mb-2 {
   position: relative;
+}
+.ListView img{
+  display: inline-block
 }
 
 .Navbar {

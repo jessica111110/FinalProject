@@ -49,15 +49,14 @@ class Login extends Component {
               <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
             </FormGroup>
             <Button className="button" onClick={(e) => this.handleClick(e)}>Submit</Button>
+            {this.state.message && <div className="info info-danger">
+              {this.state.message}
+            </div>}
           </Form>
           <Link to="/signup">No account yet? Sign up here.</Link>
         </Jumbotron>
-
       </div>
-
-
-
-    );
+    )
   }
 }
 

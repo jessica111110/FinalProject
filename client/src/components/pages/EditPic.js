@@ -12,6 +12,7 @@ class EditPic extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      tags: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"],
       image: "",
       lat: null,
       long: null,
@@ -82,16 +83,16 @@ class EditPic extends Component {
     return (
       <div className="EditPic">
         <h3>Edit your Pin</h3>
-        <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" alt="li" />
+        <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" />
         <form onSubmit={(e) => this.handleSubmit(e)}>
           {/* <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br /> */}
           {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags:
           <Input type="select" name="tag" id="exampleSelect" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)}>
-            {["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"].map((el, i) =>
-              (<option value={el} key={i}>{el}</option>))
-            }
+            {this.state.tags.map((el, i) =>
+              (<option value={el} key={i} >{el}</option>)
+            )}
           </Input>
           {/* Tags 2:
           <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
@@ -123,7 +124,9 @@ export default EditPic;
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: this.props.value };
+    this.state = {
+      address: this.props.value
+    };
   }
 
   // handleChange = address => {

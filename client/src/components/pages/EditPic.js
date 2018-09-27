@@ -82,7 +82,7 @@ class EditPic extends Component {
     return (
       <div className="EditPic">
         <h3>Edit your Pin</h3>
-        <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" alt="li" />
+        <img src={this.state.image} width="250" height="250" objectfit="cover" alt="test" />
         <form onSubmit={(e) => this.handleSubmit(e)}>
           {/* <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br /> */}
           {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}

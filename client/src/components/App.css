@@ -38,6 +38,7 @@
 
 .ListView{
   position: relative;
+  text-align: center;
 }
 
 .ListView p{
@@ -46,10 +47,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -110%);
+  transform: translate(-50%, -50%);
   text-shadow: 1px 1px 30px #6d6c6c;
   font-size:180%;
 }
+
+.ListView img{
+  display: inline-block
+}
+
 .Home-link {
   color: white;
   float: left;
@@ -69,6 +75,10 @@ size: 50%
   position: centered;
   size: 5px;
   text-align: center;
+}
+
+.ListView img{
+
 }
 
 .Navbar {

@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import './Sample.css';
 
 
@@ -17,12 +17,10 @@ let GeolocateUser = (props) => {
     props.handleGeolocation(position.coords.latitude, position.coords.longitude)
   }
   return (
-    <div className="GeolocateUser">
-      <p>Click the button to get your coordinates.</p>
-      <button onClick={e => getLocation(e)} >Yes</button>
+    <div id="Geolocate">
+      <button className="btn" onClick={e => getLocation(e)}>Get your current location{'  '}<img src="/images/Geolocate_Marker.png" style={{ width: "13%" }} alt="l" /></button>
     </div>
   )
 }
-
 
 export default GeolocateUser;

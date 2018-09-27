@@ -21,7 +21,6 @@ const greatPlaceStyle = {
   textAlign: 'center',
   border: '1px solid',
   // borderRadius: K_HEIGHT,
-  backgroundColor: 'white',
   color: '#3f51b5',
   fontSize: 16,
   fontWeight: 'bold',

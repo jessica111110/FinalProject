@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  // geocodeByPlaceId,
-  getLatLng,
-} from 'react-places-autocomplete';
 import { Input } from 'reactstrap';
 import GeolocateUser from '../pages/GeolocateUser';
 import LocationSearchInput from './LocationSearchInput';
@@ -120,8 +115,8 @@ class AddPic extends Component {
           {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
           Tags 1:
           <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
-            {this.state.filterTag.map((el) =>
-              (<option value={el}>{el}</option>))
+            {this.state.filterTag.map((el, i) =>
+              (<option key={i} value={el}>{el}</option>))
             }
           </Input>
           {/* Tags 2:

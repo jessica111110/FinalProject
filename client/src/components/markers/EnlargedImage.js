@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import React, { Component } from '../../../public/images/Edit-Icon.png'
 
 const K_WIDTH = 400;
 const K_HEIGHT = 300;
@@ -17,9 +18,8 @@ const greatPlaceStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   textAlign: 'center',
-  border: '5px solid',
-  // borderRadius: K_HEIGHT,
-  backgroundColor: 'white',
+  //border: '5px solid',
+  //borderRadius: 15,
   color: '#3f51b5',
   fontSize: 16,
   fontWeight: 'bold',
@@ -28,14 +28,16 @@ const greatPlaceStyle = {
 
 class EnlargedImage extends Component {
   render() {
-    let borderColor = this.props.borderColor || '#f44336'
+    let borderColor = this.props.borderColor || 'transparent'
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
         {<div style={{ position: "relative" }}>
-          <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover" }} />
+          <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
           {this.props.isOwner && <div>
-            <button style={{ position: "absolute", top: "8%", left: "85%" }}><Link to="/edit-picture">Edit</Link></button>
-            <button style={{ position: "absolute", top: "8%", left: "70%" }} onClick={e => this.props.deletePin(e, this.props.pinId)}>DEL</button></div>}
+            <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
+              <img src="/images/Edit-Icon.png" style={{ width: "45px" }} alt="t" />
+            </Link>
+            <img src="/images/Delete-Icon.png" style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
         </div>
         }
         <div>{this.props.children}</div>

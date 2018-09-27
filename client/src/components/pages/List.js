@@ -50,7 +50,6 @@ class List extends Component {
   render() {
     return (
       <div className="List">
-        <PlusButton />
         <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
         {this.state.pins.filter(p => {
           if (this.state.tagFilter === null) return true

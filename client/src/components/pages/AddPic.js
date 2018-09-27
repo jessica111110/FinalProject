@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import { Input } from 'reactstrap';
-import GeolocateUser from '../pages/GeolocateUser';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
+import { Button, Form, FormGroup, Label, Input, FormText, Col, Row } from 'reactstrap';
+
 
 
 class AddPic extends Component {
@@ -109,24 +109,33 @@ class AddPic extends Component {
 
   render() {
     return (
-      <div className="AddPic">
-        <h2>Choose your Picture</h2>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <input type="file" name="image" id="" onChange={(e) => this.handleInputChange("image", e)} /> <br /> <br />
-          {/* Latitude: <input type="text" value={this.state.latitude} onChange={(e) => this.handleInputChange("latitude", e)} /> <br /> */}
-          {/* Longitude: <input type="text" value={this.state.longitude} onChange={(e) => this.handleInputChange("longitude", e)} /> <br /> */}
-          Tags 1:
-          <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
-            {this.state.filterTag.map((el, i) =>
-              (<option key={i} value={el}>{el}</option>))
-            }
-          </Input>
-          {/* Tags 2:
-          <input type="text" name="tag" value={this.state.tag} onChange={(e) => this.handleInputChange("tag", e)} /> <br /> */}
-          <GeolocateUser acceptGeolocation={this.state.acceptGeolocation} lat={this.state.lat} long={this.state.long} handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} />
-          <LocationSearchInput name="address" onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
-          <button type="submit">Upload</button>
-        </form>
+      <div className="AddPic container">
+        <h1>Add picture</h1>
+        <Form onSubmit={(e) => this.handleSubmit(e)}>
+          <FormGroup row>
+            <Label for="exampleFile" sm={4}>Choose your Picture</Label>
+            <Col sm={8}>
+              <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="exampleSelect" sm={4}>Tags</Label>
+            <Col sm={8}>
+              <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
+                {this.state.filterTag.map((el, i) =>
+                  (<option key={i} value={el}>{el}</option>))
+                }
+              </Input>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="exampleSelect" sm={4}>Location</Label>
+            <Col sm={8}>
+              <LocationSearchInput name="address" handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
+            </Col>
+          </FormGroup>
+          <Button block>Upload</Button>
+        </Form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}
         </div>}

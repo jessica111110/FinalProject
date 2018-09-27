@@ -65,9 +65,16 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <PlusButton />
-        {api.isLoggedIn() && <RadioFields showOnlyMyPins={this.state.showOnlyMyPins} handleFilterMineOrAll={this.handleFilterMineOrAll} />}
-        <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-6">
+              {api.isLoggedIn() && <RadioFields showOnlyMyPins={this.state.showOnlyMyPins} handleFilterMineOrAll={this.handleFilterMineOrAll} />}
+            </div>
+            <div className="col-xs-6" style={{ marginTop: "37px" }}>
+              <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
+            </div>
+          </div>
+        </div>
         <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 40px)' }}>
           <GoogleMap
             margin={[10, 20, 30, 40]}
@@ -95,6 +102,7 @@ class Home extends Component {
               }
             }).map((p, i) => (
               <RectangleMarker
+                address={p.address}
                 deletePin={this.deletePin}
                 key={i}
                 pinId={p}

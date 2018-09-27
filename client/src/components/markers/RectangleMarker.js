@@ -64,6 +64,7 @@ class RectangleMarker extends Component {
         {
           this.state.zoomIn
             ? <EnlargedImage
+              address={this.props.address}
               deletePin={this.props.deletePin}
               pinId={this.props.pinId}
               isOwner={this.props.isOwner}

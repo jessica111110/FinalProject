@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import React, { Component } from '../../../public/images/Edit-Icon.png'
-
+import '../App.css'
 const K_WIDTH = 400;
 const K_HEIGHT = 300;
 
@@ -31,8 +30,9 @@ class EnlargedImage extends Component {
     let borderColor = this.props.borderColor || 'transparent'
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
-        {<div style={{ position: "relative" }}>
+        {<div className="MapView" style={{ position: "relative" }}>
           <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
+          <p>{this.props.address}</p>
           {this.props.isOwner && <div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
               <img src="/images/Edit-Icon.png" style={{ width: "45px" }} alt="t" />

@@ -4,11 +4,14 @@ import PlacesAutocomplete, {
   // geocodeByPlaceId,
   getLatLng,
 } from 'react-places-autocomplete';
+import '../pages/Sample.css';
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { address: '' };
+    this.getLocation = this.getLocation.bind(this)
+    this.showPosition = this.showPosition.bind(this)
   }
 
   // handleChange = address => {
@@ -22,6 +25,19 @@ class LocationSearchInput extends React.Component {
       .catch(error => console.error('Error', error));
   };
 
+  getLocation = (e) => {
+    e.preventDefault()
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPosition);
+    } else {
+      console.log("Geolocation not supported")
+    }
+  }
+
+  showPosition = (position) => {
+    this.props.handleGeolocation(position.coords.latitude, position.coords.longitude)
+  }
+
   render() {
 
     return (
@@ -32,12 +48,21 @@ class LocationSearchInput extends React.Component {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <input
-              {...getInputProps({
-                placeholder: 'Search Places ...',
-                className: 'location-search-input',
-              })}
-            />
+            <div className="input-group mb-2" >
+
+              <div className="input-group-prepend " style={{ width: "10%" }}>
+                <div className="input-group-text" onClick={e => this.getLocation(e)}>
+                  <img style={{ width: "20px" }} src="/images/gps-icon.png" alt="h" />
+                </div>
+              </div>
+              <input
+                className='location-search-input form-control'
+                {...getInputProps({
+                  placeholder: 'Search Places ...',
+                })}
+                value={this.props.address}
+              />
+            </div>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion, i) => {

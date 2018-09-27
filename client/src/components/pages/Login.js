@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
 import { Link } from 'react-router-dom';
-import { Button, Form, FormGroup, Input, Jumbotron, Label } from 'reactstrap';
+import { Button, Form, FormGroup, Alert, Col, Input, Jumbotron, Label } from 'reactstrap';
 import '../App.css';
 
 
@@ -11,8 +11,14 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      message: null
+      message: null,
+      visible: true,
     }
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss() {
+    this.setState({ visible: false });
   }
 
   handleInputChange(stateFieldName, event) {
@@ -41,8 +47,8 @@ class Login extends Component {
             <div className="loginFormHeader"><h2>Login</h2>
             </div>
             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-              <Label for="exampleText" className="mr-sm-2">Email</Label>
-              <Input type="text" id="exampleText" placeholder="your Name" type="text" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
+              <Label for="exampleText" className="mr-sm-2">Username</Label>
+              <Input type="text" id="exampleText" placeholder="Your Name" type="text" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} />
             </FormGroup>
             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
               <Label for="examplePassword" className="mr-sm-2">Password</Label>
@@ -52,6 +58,7 @@ class Login extends Component {
             {this.state.message && <div className="info info-danger">
               {this.state.message}
             </div>}
+
           </Form>
           <Link to="/signup">No account yet? Sign up here.</Link>
         </Jumbotron>

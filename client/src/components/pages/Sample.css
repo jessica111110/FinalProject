@@ -64,7 +64,7 @@
 }
 
 .switch-field input:checked + label {
-  background-color: #A5DC86;
+  background-color: #DF7373;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -110,3 +110,7 @@
   vertical-align: middle;
 }
 
+.location-search-input{
+  width:100%;
+  height:calc(2.25rem + 2px)
+}

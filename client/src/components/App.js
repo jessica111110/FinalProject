@@ -77,7 +77,7 @@ class App extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="sm-auto" navbar>
                 {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_w.png" alt="List" />}
+                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_new_w.png" alt="List" />}
                 </NavLink></NavItem>}
                 {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" />}

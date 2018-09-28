@@ -6,7 +6,7 @@ class SearchField extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tags: ["All", "Beach", "Climbing", "Coast", "City", "Desert", "Djungle", "Food", "Glacier", "Hiking", "Lake", "Mountainbiking", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"]
+      tags: ["All", "Beach", "Climbing", "Coast", "City", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"]
     }
     // this.handleChange = this.handleChange.bind(this)
 

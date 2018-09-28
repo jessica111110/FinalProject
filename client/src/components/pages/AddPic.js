@@ -10,7 +10,7 @@ class AddPic extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      filterTag: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Other", "Sea", "Snow", "Waterfall", "Woods"],
+      filterTag: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Sea", "Snow", "Waterfall", "Woods", "Other"],
       image: "",
       lat: null,
       long: null,

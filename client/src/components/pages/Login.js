@@ -62,7 +62,7 @@ class Login extends Component {
 
           </Form>
           <Link to="/signup">No account yet? Sign up here.</Link> */}
-        <Jumbotron className="jumbotronLogin">
+        <Jumbotron className="jumbotronLogin" style={{ height: "95vh" }}>
           <Row>
             <Col md="6" lg="4">
               <Form dark>

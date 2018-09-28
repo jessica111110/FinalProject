@@ -44,7 +44,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="Login">
-        <Jumbotron className="jumbotronSignup">
+        <Jumbotron className="jumbotronSignup" style={{ height: "95vh" }}>
           <Row>
             <Col md="6" lg="4">
               <Form dark>

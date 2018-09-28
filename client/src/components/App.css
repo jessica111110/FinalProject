@@ -181,13 +181,17 @@ size: 50%
 .LoginHeader {
   color: white;
   position: absolute;
-  top: 10%;
+  top: 2%;
+  left: 22%;
+  font-weight: 650;
 }
 
 .SignupHeader{
   color: white;
   position: absolute;
-  top: 10%;
+  top: 2%;
+  left: 22%;
+  font-weight: 650;
 }
 
 .EditHeader {

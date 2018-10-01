@@ -5,131 +5,30 @@ Created using the MERN stack, Google Maps API, Cloudinary, Reactstrap and CSS.
 
 ![maepic Logo](./maepic_logo.png)
 
+by Alina and Jessica
+#### Post your epic pictures on a map... instantly based on geolocation!
+##### See which pictures others share on their map. So much unknown places to explore.
 
 
-## Global information
+## How to run this on your computer
+1. Clone or copy this repository
+2. `npm install`
+3. Run Mongodb from the terminal `sudo mongod`
+4. `npm run dev`
+5. Go to `http://localhost:3000`
 
-### Directory structure
-
-
-### Files to add
-
-
-## Commands
-
-
-**To install all the packages**
-```sh
-$ npm install
-# OR
-$ (cd server && npm install)
-$ (cd client && npm install)
-```
-
-**To install a package for the server**
-```sh
-$ cd server
-$ npm install --save axios
-```
-
-**To install a package for the client**
-```sh
-$ cd client
-$ npm install --save axios
-```
-
-**To run the server and the client**
-```sh
-# Open a first terminal
-$ npm run dev:server
-# Run the server on http://localhost:5000/
-
-# Open a second terminal
-$ npm run dev:client
-# Run the client on http://localhost:3000/
-```
-
-So now you can go to 
-- http://localhost:5000/api/: A simple API call
-- http://localhost:5000/: The website based on client/build (that you can update with `$ (cd client && npm run build)`)
-- http://localhost:3000/: The last version of your React application that is calling your API with the base url "http://localhost:5000/api/"
+Alternately please direct your browser to the live version on https://my-sic.herokuapp.com
 
 
-## Example in the code
+## About
 
-### `server/routes/auth.js`
+>The social music platform of the future!
 
-- `router.post('/signup')`: Route to create a new user
-- `router.post('/login')`: Route to send the user JWT 
-- `router.get('/secret')`: Route where the user need to be authenticated
+This is our final project for Ironhack Berlin's July-October 2018 Full-Stack Web Development bootcamp!
 
+It represents the culmination of our 9 weeks and also specifically our React module. 
 
-### `server/routes/users.js`
+The idea is simple: twitter meets spotify. Share the music you are listening to right now, with a simple comment. 
+>Follow people who like similar music, follow your friends, make new friends! 
 
-- `router.get('/')`: Route to get all users
-- `router.post('/first-user/pictures')`: Route to add a picture on one user with Cloudinary
-
-<!-- TODO: give instructions for Cloudinary -->
-<!-- TODO: give instructions for route guards -->
-
-### `server/routes/countries.js`
-
-- `router.get('/')`: Route to get all countries
-- `router.post('/')`: Route to add a country
-
-
-
-## Deployement on Heroku
-
-### To deploy the first time
-
-Create a project on Heroku.com. Here for the demo I named the project "my-ironhack-project". 
-
-Then, you need to link your Git project with Heroku.
-
-```sh
-# Replace "my-ironhack-project" by the name of your Heroku project
-$ heroku git:remote -a my-ironhack-project 
-$ git push heroku master
-```
-
-Then you need to create a Mongo database online with MLab.
-
-```sh
-$ heroku addons:create mongolab:sandbox
-```
-
-
-### To redeploy
-
-You just need to push on `heroku` (don't forget to commit before):
-```sh
-$ git push heroku master
-```
-
-### To execute a seed
-
-If you want to execute something on the server, for example a seed, you can use `heroku run`.
-
-Example:
-```
-$ heroku run node server/bin/seeds.js
-```
-
-
-### To Open MongoLab
-
-You can either go on the Heroku project page ("Overview" tab) or type the following command:
-
-```
-$ heroku addons:open mongolab
-```
-
-
-### See the logs
-
-```sh
-$ heroku logs
-```
-
-
+#### Thanks for viewing! 

@@ -1,59 +1,21 @@
-# MERN boilerplate | Ironhack Fullstack Application
+# maepic
+Ironhack Web Development Bootcamp
+Final Project → maepic: Map your most epic pics instantly while traveling. 
+Created using the MERN stack, Google Maps API, Cloudinary, Reactstrap and CSS.
+
+![maepic Logo](./maepic_logo.png)
+
 
 
 ## Global information
 
 ### Directory structure
-```
-.vscode/
-client/
-  build/
-  public/
-  src/
-  package.json
-server/
-  bin/
-  configs/
-  models/
-  passport/
-  routes/
-  app.js
-  middlewares.js
-  package.json
-.gitignore
-package.json
-README.md
-```
+
 
 ### Files to add
 
-You should have a `server/.env` file, with for example the following values:
-```
-CLOUDINARY_CLOUD_NAME=......
-CLOUDINARY_API_KEY=......
-CLOUDINARY_API_SECRET=......
-JWT_SECRET=......
-MONGODB_URI=......
-```
-
 
 ## Commands
-
-**To download the boilerplate and link it with your GitHub project**
-
-(replace `<my-project>` and `<https://github.com/user/my-project.git>` by what you want, without `<` and `>`).
-
-```sh
-# Clone the project with only the last commit and save it in the folder <my-project>
-$ git clone --depth=1 https://github.com/mc100s/mern-boilerplate.git <my-project>
-
-$ cd <my-project>
-$ rm -rf .git
-$ git init
-
-# Set your GitHub repository as the "origin" remote repository
-$ git remote add origin <https://github.com/user/my-project.git>
-```
 
 
 **To install all the packages**

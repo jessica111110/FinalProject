@@ -3,7 +3,7 @@ Ironhack Web Development Bootcamp
 Final Project → maepic: Map your most epic pics instantly while traveling. 
 Created using the MERN stack, Google Maps API, Cloudinary, Reactstrap and CSS.
 
-![maepic Logo](/client/public/maepic_logo.png)
+![maepic Logo](./client/public/maepic_logo.png)
 
 by Alina and Jessica
 #### Post your epic pictures on a map... instantly based on geolocation!

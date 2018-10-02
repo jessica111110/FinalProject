@@ -26,6 +26,5 @@ This is our final project for Ironhack Berlin's July-October 2018 Full-Stack Web
 
 It represents the culmination of our 9 weeks and also specifically our React module. 
 
-The idea is simple: 
 
-#### Thanks for viewing! 
+#### Thanks for your interest! 

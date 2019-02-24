@@ -21,6 +21,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import api from '../api';
 import './App.css';
+import NavIcons from '../../src/sprite.svg'
 
 
 class App extends Component {
@@ -76,21 +77,27 @@ class App extends Component {
           <Nav className="ml-auto" navbar>
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="sm-auto" navbar>
+
                 {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_new_w.png" alt="List" />}
                 </NavLink></NavItem>}
+
                 {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" style={{ width: '30px' }} />}
                 </NavLink></NavItem>}
-                <NavItem className="d-flex align-items-center">
 
+                <NavItem className="d-flex align-items-center">
                   {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src="/camera_w.png" alt="Add Pic" />}</NavLink>
                   {!api.isLoggedIn() && <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggle}>Please log in first</Tooltip>}
-
                 </NavItem>
+
                 <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/signup">Signup</NavLink>}</NavItem>
+
                 <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
-                <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</NavLink>}</NavItem>
+
+                {api.isLoggedIn() && <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/signup">
+                  {<svg onClick={(e) => this.handleLogoutClick(e)} className="logout-icon" style={{ width: "46px", fill: "white", height: "28px", padding: "3px", margin: "10px" }}> <use xlinkHref={`${NavIcons}#logout`} /> </svg>}</NavLink>}</NavItem>}
+
               </Nav>
             </Collapse>
           </Nav>
@@ -98,7 +105,6 @@ class App extends Component {
         Name < div>
           <Switch>
             <Route path="/" exact component={Home} />
-            {/* <Route path="/countries" component={Countries} /> */}
             <Route path="/list-view" component={List} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />

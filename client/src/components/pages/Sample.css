@@ -77,7 +77,7 @@
   border-radius: 0 4px 4px 0;
 }
 
-.btn {
+.button.btn.btn-secondary {
   /* background: #fff;
   border:3px solid grey;
   padding: 5px;
@@ -85,6 +85,7 @@
   text-align:left; */
   background-color: #E56969;
     border: none;
+    border-color: #e56969;
     color: white;
     padding: 12px 16px;
     font-size: 16px;
@@ -92,9 +93,11 @@
     position: relative;
 }
 
-.btn:hover {
-  background-color: a55151;
+.button.btn.btn-secondary:hover {
+  background-color: #c44747e5;
 }
+  /*   background-color: a55151;
+ */
 
 #geolocate_btn_container img {
   border: 6px solid red;
@@ -113,4 +116,23 @@
 .location-search-input{
   width:100%;
   height:calc(2.25rem + 2px)
+}
+
+.upload-button{
+  background-color:#e56969;
+  border-color: #e56969;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 7px;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 3px 10px #ba5e5e7a;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.upload-button:hover{
+  background-color:#c44747e5;
+
+  border-color:black;
 }

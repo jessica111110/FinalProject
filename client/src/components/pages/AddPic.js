@@ -109,36 +109,38 @@ class AddPic extends Component {
 
   render() {
     return (
-      <div className="AddPic container" style={{ paddingTop: "60px" }}>
-        <h1>Add picture</h1>
-        <Form onSubmit={(e) => this.handleSubmit(e)}>
-          <FormGroup row>
-            <Label for="exampleFile" sm={4}>Choose your Picture</Label>
-            <Col sm={8}>
-              <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="exampleSelect" sm={4}>Tags</Label>
-            <Col sm={8}>
-              <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
-                {this.state.filterTag.map((el, i) =>
-                  (<option key={i} value={el}>{el}</option>))
-                }
-              </Input>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="exampleSelect" sm={4}>Location</Label>
-            <Col sm={8}>
-              <LocationSearchInput name="address" handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
-            </Col>
-          </FormGroup>
-          <Button block>Upload</Button>
-        </Form>
-        {this.state.message && <div className="info info-danger">
-          {this.state.message}
-        </div>}
+      <div className="AddPic background" >
+        <div className="AddPic container" style={{ paddingTop: "60px" }}>
+          <h1>Add a picture</h1>
+          <Form onSubmit={(e) => this.handleSubmit(e)}>
+            <FormGroup row>
+              <Label for="exampleFile" sm={4}>Choose your Picture</Label>
+              <Col sm={8}>
+                <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="exampleSelect" sm={4}>Tags</Label>
+              <Col sm={8}>
+                <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
+                  {this.state.filterTag.map((el, i) =>
+                    (<option key={i} value={el}>{el}</option>))
+                  }
+                </Input>
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="exampleSelect" sm={4}>Location</Label>
+              <Col sm={8}>
+                <LocationSearchInput name="address" handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
+              </Col>
+            </FormGroup>
+            <button className="upload-button" block>Upload</button>
+          </Form>
+          {this.state.message && <div className="info info-danger">
+            {this.state.message}
+          </div>}
+        </div>
       </div>
     );
   }

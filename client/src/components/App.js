@@ -80,7 +80,7 @@ class App extends Component {
                   {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_new_w.png" alt="List" />}
                 </NavLink></NavItem>}
                 {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" />}
+                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" style={{ width: '30px' }} />}
                 </NavLink></NavItem>}
                 <NavItem className="d-flex align-items-center">
 

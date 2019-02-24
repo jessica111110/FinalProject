@@ -49,7 +49,7 @@ class LocationSearchInput extends React.Component {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <div className="input-group mb-2" >
-
+              {/* width veraendern hier, problem mit 10% */}
               <div className="input-group-prepend " style={{ width: "10%" }}>
                 <div className="input-group-text" onClick={e => this.getLocation(e)}>
                   <img style={{ width: "20px" }} src="/images/gps-icon.png" alt="h" />

@@ -114,6 +114,7 @@
   position: relative;
   text-align: center;
   margin: 10px;
+  overflow: hidden;
 }
 
 .ListView p{
@@ -125,6 +126,14 @@
   transform: translate(-50%, -50%);
   text-shadow: 1px 1px 30px #6d6c6c;
   font-size:180%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s ease-out, visibility .5s ease-out;
+}
+
+.ListView:hover p{
+  visibility: visible;
+  opacity: 1;
 }
 
 .MapView p{
@@ -143,6 +152,11 @@
   height: 250px;
   width: 250px;
   object-fit: cover;
+  transition: 0.9s ease-out;
+}
+
+.ListView:hover img{
+  transform: scale(1.4);
 }
 
 .Home-link {

@@ -9,7 +9,7 @@ import '../pages/Sample.css';
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: '' };
+    this.state = { address: this.props.value == "" ? '' : this.props.value };
     this.getLocation = this.getLocation.bind(this)
     this.showPosition = this.showPosition.bind(this)
   }
@@ -49,8 +49,7 @@ class LocationSearchInput extends React.Component {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <div className="input-group mb-2" >
-              {/* width veraendern hier, problem mit 10% */}
-              <div className="input-group-prepend " style={{ width: "10%" }}>
+              <div className="input-group-prepend ">
                 <div className="input-group-text" onClick={e => this.getLocation(e)}>
                   <img style={{ width: "20px" }} src="/images/gps-icon.png" alt="h" />
                 </div>

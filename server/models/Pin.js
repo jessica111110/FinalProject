@@ -14,6 +14,7 @@ const pinSchema = new mongoose.Schema({
     type: String,
     required: [true, "A picture is required"]
   },
+  fileName: String,
   tag: {
     type: String,
     enum: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Sea", "Snow", "Up in the air", "Waterfall", "Woods", "Other"]

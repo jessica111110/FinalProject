@@ -351,3 +351,44 @@ size: 50%
   padding: 3px;
   margin: 10px;
  }
+
+/* Hide the file input using
+opacity */
+[type=file] {
+  position: absolute;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+[type=file] + label {
+/* border: 1px solid #CCC; */
+margin: 0;
+position: relative;
+}
+
+#f02[type=file] + label {
+text-align: center;
+height: calc(2.25rem + 2px);
+padding: .375rem .75rem;
+cursor: pointer;
+display: block;
+width: inherit;
+/* Decorative */
+background: darkgray;
+overflow: hidden;
+/* color: #495057; */
+color: white;
+text-shadow: none;
+border: 1px solid #ced4da;
+border-radius: .25rem;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#f02[type=file] + label:hover {
+/* background: #3399ff; */
+background: #80bdff;
+}
+
+.input-group-prepend {
+  width: initial;
+}

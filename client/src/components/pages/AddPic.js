@@ -12,10 +12,12 @@ class AddPic extends Component {
     this.state = {
       filterTag: ["Beach", "City", "Climbing", "Coast", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Sea", "Snow", "Up in the air", "Waterfall", "Woods", "Other"],
       image: "",
+      imageName: "",
       lat: null,
       long: null,
       address: "",
       tag: "Beach",
+      imageWasUploaded: false,
       askGeolocation: true,
       acceptGeolocation: false,
       declineGeolocation: false,
@@ -56,7 +58,9 @@ class AddPic extends Component {
     if (stateFieldName === "image") {
       console.log("handle input", event.target.files[0])
       this.setState({
-        [stateFieldName]: event.target.files[0]
+        [stateFieldName]: event.target.files[0],
+        imageName: event.target.files[0].name,
+        imageWasUploaded: true,
       })
     }
     else {
@@ -94,6 +98,7 @@ class AddPic extends Component {
       long: this.state.long,
       address: this.state.address,
       image: this.state.image,
+      fileName: this.state.imageName,
       tag: this.state.tag
     }
     api.postPin(pin)
@@ -116,7 +121,9 @@ class AddPic extends Component {
             <FormGroup row>
               <Label for="exampleFile" sm={4}>Choose your Picture</Label>
               <Col sm={8}>
-                <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} />
+                {/* <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} /> */}
+                <input id="f02" type="file" name="image" onChange={(e) => this.handleInputChange("image", e)} placeholder="Edit picture" />
+                <label for="f02">{this.state.imageWasUploaded ? this.state.imageName : "No file chosen"}</label>
               </Col>
             </FormGroup>
             <FormGroup row>

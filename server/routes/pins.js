@@ -29,9 +29,9 @@ router.get('/', (req, res, next) => {
 router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
   if (!req.file) res.status(401).json({ message: "Please, upload a picture" });
   const image = req.file ? req.file.url : req.body.image
-  const { lat, long, address, country, tag } = req.body;
+  const { lat, long, address, tag, fileName } = req.body;
   const newPin = new Pin({
-    lat, long, address, country, tag, _owner: req.user._id, image
+    lat, long, address, tag, _owner: req.user._id, image, fileName
   })
   newPin.save()
     .then((pin) => {
@@ -45,15 +45,11 @@ router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
 
 //Route to edit a pin
 router.patch('/:id', isLoggedIn, (req, res, next) => {
-  // let updatedImage;
-  // if (req.file) {
-  //   updatedImage = req.file.secure_url
-  // }
-  // else {
-  //   updatedImage = req.body.image
-  // }
-  const { lat, long, address, country, tag } = req.body;
-  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, country, tag } }, { new: true, runValidators: true })
+  // if (!req.file) res.status(401).json({ message: "Please, upload a picture" });
+  // const image = req.file ? req.file.secure_url : req.body.image
+
+  const { lat, long, address, tag } = req.body;
+  Pin.findByIdAndUpdate(req.params.id, { $set: { lat, long, address, tag } }, { new: true, runValidators: true })
     .then((pin) => {
       res.json({
         success: true,

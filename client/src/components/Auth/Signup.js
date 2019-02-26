@@ -33,7 +33,6 @@ class Signup extends Component {
     }
     api.signup(data)
       .then(result => {
-        console.log('SUCCESS!')
         this.props.history.push("/login") // Redirect to the login page
       })
       .catch(err => this.setState({ message: err.response && err.response.data.message }))

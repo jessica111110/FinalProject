@@ -15,7 +15,6 @@ class RadioFields extends Component {
   }
 
   handleChange(e) {
-    console.log("I have changed")
     this.props.handleFilterMineOrAll("showOnlyMyPins", e)
     this.setState({
       showOnlyMyPins: !this.state.showOnlyMyPins

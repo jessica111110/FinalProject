@@ -42,9 +42,6 @@ class Home extends Component {
   }
 
   _setCurrentUser(pinOwner) {
-    // console.log("TRUEORFALSE", this.state.currentUser._id === pinOwner)
-    // console.log("TYPEOFCURRENTUSR", this.state.currentUser)
-    // console.log("TYPEOFPIOWWNER", pinOwner)
     return this.state.currentUser._id === pinOwner
   }
 
@@ -52,7 +49,6 @@ class Home extends Component {
     event.preventDefault();
     api.deletePin(pinIdToDelete._id)
       .then(toDelete => {
-        console.log("PINTODELETE", toDelete)
         this.setState({
           pins: this.state.pins.filter(p =>
             p !== pinIdToDelete
@@ -82,21 +78,15 @@ class Home extends Component {
             zoom={4.1}>
             {this.state.pins.filter(p => {
               if (this.state.tagFilter === "" && !this.state.showOnlyMyPins) {
-                console.log("allpins, no tagfilter")
                 return true
               }
               else if (this.state.tagFilter !== "" && !(this.state.showOnlyMyPins)) {
-                console.log("pinsofallowners,certaintag", p.tag === this.state.tagFilter)
                 return p.tag === this.state.tagFilter
               }
               else if (this.state.tagFilter !== "" && this.state.showOnlyMyPins) {
-                console.log("mypins,certaintag", p._owner === this.state.currentUser._id && p.tag === this.state.tagFilter)
                 return p.tag === this.state.tagFilter && p._owner === this.state.currentUser._id
               }
               else if (this.state.showOnlyMyPins && this.state.tagFilter === "") {
-                console.log("mypins only", p._owner === this.state.currentUser._id)
-                console.log("owner", p._owner)
-                console.log("currentuser", this.state.currentUser._id)
                 return p._owner === this.state.currentUser._id
               }
             }).map((p, i) => (
@@ -124,14 +114,12 @@ class Home extends Component {
 
   componentDidMount() {
     let user = api.loadUser()
-    console.log("USER", user)
     this.setState({
       currentUser: user
     })
     api
       .getPins()
       .then(pins => {
-        console.log("PINS", pins)
         this.setState({
           pins: pins
         })

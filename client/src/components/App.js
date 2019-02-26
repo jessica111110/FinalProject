@@ -72,7 +72,6 @@ class App extends Component {
     return (
 
       <div>
-        console.log({<img className="img-list" src="../images/list_w.psd" alt="List" />})
         {/* Navbar reactstrap */}
         <Navbar className="Navbar" dark expand fixed={`top`}>
           <NavbarBrand href="/" exact>

@@ -25,7 +25,6 @@ class EditPic extends Component {
   }
 
   handleSelect(latLng) {
-    console.log("handle select", latLng)
     this.setState({
       lat: latLng.lat,
       long: latLng.lng,
@@ -44,7 +43,6 @@ class EditPic extends Component {
 
   handleInputChange(stateFieldName, event) {
     if (stateFieldName === "image") {
-      console.log("handle input", event.target.files[0])
       this.setState({
         [stateFieldName]: event.target.files[0],
         imageName: event.target.files[0].name,
@@ -52,7 +50,6 @@ class EditPic extends Component {
       })
     }
     else {
-      console.log("evnttagertevalue evtl tag", event.target.value)
       this.setState({
         [stateFieldName]: event.target.value
       })
@@ -64,7 +61,6 @@ class EditPic extends Component {
       lat: lat,
       long: long
     })
-    console.log("lat, long", lat, long)
     Geocode.fromLatLng(lat, long).then(
       response => {
         const address = response.results[0].formatted_address;
@@ -90,10 +86,8 @@ class EditPic extends Component {
       // image: this.state.image,
       tag: this.state.tag
     }
-    console.log("PIN", pin)
     api.editPin(pin, this.props.match.params.id)
       .then(result => {
-        console.log('EDIT PIC SUCCESS!', result)
         this.props.history.push("/") // Redirect to the home page
       })
       .catch(err => {
@@ -143,9 +137,6 @@ class EditPic extends Component {
   componentDidMount() {
     api.getPin(this.props.match.params.id)
       .then(pin => {
-        console.log("PINTODEDIT", pin)
-        console.log("ImageTODEDIT", pin.pinFromDb.image)
-        console.log("pinfilename", pin.pinFromDb.fileName)
         this.setState({
           image: pin.pinFromDb.image,
           imageName: pin.pinFromDb.fileName,

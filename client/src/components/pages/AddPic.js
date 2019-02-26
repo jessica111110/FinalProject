@@ -56,7 +56,6 @@ class AddPic extends Component {
 
   handleInputChange(stateFieldName, event) {
     if (stateFieldName === "image") {
-      console.log("handle input", event.target.files[0])
       this.setState({
         [stateFieldName]: event.target.files[0],
         imageName: event.target.files[0].name,
@@ -64,7 +63,6 @@ class AddPic extends Component {
       })
     }
     else {
-      console.log("evnttagertevalue evtl tag", event.target.value)
       this.setState({
         [stateFieldName]: event.target.value
       })
@@ -76,7 +74,6 @@ class AddPic extends Component {
       lat: lat,
       long: long
     })
-    console.log("lat, long", lat, long)
     Geocode.fromLatLng(lat, long).then(
       response => {
         const address = response.results[0].formatted_address;
@@ -103,11 +100,9 @@ class AddPic extends Component {
     }
     api.postPin(pin)
       .then(result => {
-        console.log('ADD PIC SUCCESS!', result)
         this.props.history.push("/") // Redirect to the home page
       })
       .catch(err => {
-        console.log('ERROR')
         this.setState({ message: err.response.data.message })
       })
   }

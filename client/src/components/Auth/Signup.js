@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input, Jumbotron, Label } from 'reactstrap';
+import '../sign.css'
 
 class Signup extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="Login">
-        <Jumbotron className="jumbotronSignup" style={{ height: "95vh" }}>
+        <div className="jumbotronSignup mobile">
           <Row>
             <Col md="6" lg="4">
               <Form dark>
@@ -68,7 +69,7 @@ class Signup extends Component {
             </Col>
             <Col md="4"></Col>
           </Row>
-        </Jumbotron>
+        </div>
       </div>
     );
   }

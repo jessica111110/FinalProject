@@ -9,15 +9,7 @@ class SearchField extends Component {
     this.state = {
       tags: ["All", "Beach", "Climbing", "Coast", "City", "Desert", "Djungle", "Glacier", "Lake", "Mountains", "Sea", "Snow", "Up in the air", "Waterfall", "Woods", "Other"]
     }
-    // this.handleChange = this.handleChange.bind(this)
-
   }
-
-  // handleChange(e) {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
 
   render() {
     return (
@@ -38,18 +30,3 @@ class SearchField extends Component {
 }
 
 export default SearchField;
-
-
-
-// <div className="SearchField">
-//         <form action="">
-//           <select type="select" name="select" id="exampleSelect" onChange={(e) => this.props.handleInputChange("tagFilter", e)}>
-//             {/* <option value="null">All</option> */}
-//             {this.state.tags.map((el, i) =>
-//               (
-//                 <option key={i} value={el}>{el}</option>
-//               ))
-//             }
-//           </select>
-//         </form >
-//       </div>

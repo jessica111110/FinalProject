@@ -1,0 +1,56 @@
+/* Styles for login and signup components */
+
+.jumbotronLogin {
+  background-image: url(../components/ny.jpeg);
+}
+
+.jumbotronSignup {
+  background-image: url(../components/rome.jpeg);
+}
+
+.jumbotronLogin, .jumbotronSignup {
+  margin-bottom: 0px;
+  padding: 6rem 0;
+  height: 100vh;
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+@media (min-width: 576px){
+  .jumbotronLogin, .jumbotronSignup {
+    padding: 6rem 0;
+  }
+}
+
+.jumbotronLogin .nav-link, .jumbotronSignup .nav-link{
+  color: white;
+  font-weight: 500
+}
+
+.jumbotronLogin .nav-link:hover, .jumbotronSignup .nav-link:hover{
+  font-weight: 700
+}
+
+.LoginHeader, .SignupHeader {
+  color: white;
+  position: absolute;
+  top: 2%;
+  left: 22%;
+  font-weight: 650;
+}
+
+.LoginForm, .SignupForm {
+  margin:80px;
+}
+
+.nav-link {
+  justify-content: center;
+}
+
+h1{
+  font-size: 170%;
+  margin-bottom: 3rem;
+  color: white;
+ }

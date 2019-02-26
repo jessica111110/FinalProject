@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input, Jumbotron, Label } from 'reactstrap';
-import '../App.css';
+// import '../App.css';
+import '../sign.css'
 
 
 class Login extends Component {
@@ -41,7 +42,7 @@ class Login extends Component {
     return (
 
       <div className="Login">
-        <Jumbotron className="jumbotronLogin" style={{ height: "95vh" }}>
+        <div className="jumbotronLogin mobile">
           <Row>
             <Col md="6" lg="4">
               <Form dark>
@@ -67,8 +68,8 @@ class Login extends Component {
             </Col>
             <Col md="4"></Col>
           </Row>
-        </Jumbotron>
-      </div>
+        </div>
+      </div >
     )
   }
 }

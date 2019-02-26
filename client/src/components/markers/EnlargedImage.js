@@ -20,7 +20,6 @@ const greatPlaceStyle = {
   alignItems: 'center',
   textAlign: 'center',
   //border: '5px solid',
-  //borderRadius: 15,
   color: '#3f51b5',
   fontSize: 16,
   fontWeight: 'bold',

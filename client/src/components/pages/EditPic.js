@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  // geocodeByPlaceId,
-  getLatLng,
-} from 'react-places-autocomplete';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
-import { Jumbotron, Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
 class EditPic extends Component {

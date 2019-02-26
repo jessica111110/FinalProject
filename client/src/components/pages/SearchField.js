@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import './Sample.css';
+import TagLogo from "../../images/hashtag_w.png"
 
 class SearchField extends Component {
   constructor(props) {
@@ -22,9 +23,9 @@ class SearchField extends Component {
     return (
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <label style={{ backgroundColor: "#DF7373" }} className="input-group-text" for="inputGroupSelect01"><img className="hashtagIcon" style={{ width: "18px" }} src="/hashtag_w.png" alt="k" /></label>
+          <label style={{ backgroundColor: "#DF7373" }} className="input-group-text" htmlFor="inputGroupSelect01"><img className="hashtagIcon" style={{ width: "18px" }} src={TagLogo} alt="k" /></label>
         </div>
-        <select name="select" class="custom-select" id="inputGroupSelect01" onChange={(e) => this.props.handleInputChange("tagFilter", e)}>
+        <select name="select" className="custom-select" id="inputGroupSelect01" onChange={(e) => this.props.handleInputChange("tagFilter", e)}>
           {this.state.tags.map((el, i) =>
             (
               <option key={i} value={el}>{el}</option>

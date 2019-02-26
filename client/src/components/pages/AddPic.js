@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../../api';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
-import { Button, Form, FormGroup, Label, Input, FormText, Col, Row } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 
 

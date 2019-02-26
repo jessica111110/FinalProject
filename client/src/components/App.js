@@ -17,11 +17,16 @@ import Home from './pages/Home';
 import List from './pages/List';
 import AddPic from './pages/AddPic';
 import EditPic from './pages/EditPic';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Login from './Auth/Login';
+import Signup from './Auth/Signup';
 import api from '../api';
 import './App.css';
 import NavIcons from '../../src/sprite.svg'
+import ListLogo from "./../images/list_new_w.png"
+import MapLogo from "./../images/globe_w.png"
+import NavLogo from "./../images/maepic_w_transparent.png"
+import CreateLogo from "./../images/camera_w.png"
+
 
 
 class App extends Component {
@@ -67,11 +72,11 @@ class App extends Component {
     return (
 
       <div>
-        console.log({<img className="img-list" src="/list_w.psd" alt="List" />})
+        console.log({<img className="img-list" src="../images/list_w.psd" alt="List" />})
         {/* Navbar reactstrap */}
         <Navbar className="Navbar" dark expand fixed={`top`}>
           <NavbarBrand href="/" exact>
-            {<img className="img-logo" src="/maepic_w_transparent.png" alt="Logo" />}
+            {<img className="img-logo" src={NavLogo} alt="Logo" />}
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Nav className="ml-auto" navbar>
@@ -79,15 +84,15 @@ class App extends Component {
               <Nav className="sm-auto" navbar>
 
                 {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/list_new_w.png" alt="List" />}
+                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src={ListLogo} alt="List" />}
                 </NavLink></NavItem>}
 
                 {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src="/globe_w.png" alt="Map" style={{ width: '30px' }} />}
+                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src={MapLogo} alt="Map" style={{ width: '30px' }} />}
                 </NavLink></NavItem>}
 
                 <NavItem className="d-flex align-items-center">
-                  {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src="/camera_w.png" alt="Add Pic" />}</NavLink>
+                  {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src={CreateLogo} alt="Add Pic" />}</NavLink>
                   {!api.isLoggedIn() && <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggle}>Please log in first</Tooltip>}
                 </NavItem>
 
@@ -95,7 +100,7 @@ class App extends Component {
 
                 <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
 
-                {api.isLoggedIn() && <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/signup">
+                {api.isLoggedIn() && <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/login">
                   {<svg onClick={(e) => this.handleLogoutClick(e)} className="logout-icon" style={{ width: "46px", fill: "white", height: "28px", padding: "3px", margin: "10px" }}> <use xlinkHref={`${NavIcons}#logout`} /> </svg>}</NavLink>}</NavItem>}
 
               </Nav>
@@ -117,14 +122,5 @@ class App extends Component {
     );
   }
 }
-{/* <header className="App-header">
-          <Link className="Home-link" to="/" exact ><img class="Logo" src="/maepic_logo_interim.png" alt="Logo" /></Link>
-          {/* <Link to="/list-view">List view</Link> 
-          {api.isLoggedIn() ? <Link to="/add-picture">Add Picture</Link> : <Link to="/login">Add Picture</Link>}
-          {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
-          {!api.isLoggedIn() && <Link to="/login">Login</Link>}
-          {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link>}
-        </header> */}
-
 
 export default App;

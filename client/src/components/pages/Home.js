@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import api from '../../api';
 import '../App.css';
 import RectangleMarker from '../markers/RectangleMarker';
-import PlusButton from '../pages/PlusButton';
 import SearchField from '../pages/SearchField';
 import RadioFields from '../pages/RadioFields';
 import GoogleMap from 'google-map-react';

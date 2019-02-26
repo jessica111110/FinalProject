@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
-
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input, Jumbotron, Label } from 'reactstrap';
 
 class Signup extends Component {
@@ -56,7 +55,7 @@ class Signup extends Component {
                   </FormGroup>
                   <FormGroup row>
                     <Label for="examplePassword" className="mr-sm-1">Password</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="Choose wisely" type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
+                    <Input type="password" name="password" id="examplePassword" placeholder="Choose wisely" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} />
                   </FormGroup>
                   <FormGroup row>
                     <Button type="submit" className="button" onClick={(e) => this.handleClick(e)}>Signup</Button>
@@ -75,45 +74,5 @@ class Signup extends Component {
     );
   }
 }
-
-
-{/* <div className="Signup">
-  <h2>Signup</h2>
-  <FormGroup row>
-    <Label for="exampleName" sm={4}>Username</Label>
-    <Col sm={4}>
-      <Input
-        input type="text" name="username" value={this.state.username}
-        onChange={(e) => this.handleInputChange("username", e)}
-      />
-    </Col>
-  </FormGroup>
-
-  <FormGroup row>
-    <Label for="exampleName" sm={4}>Password</Label>
-    <Col sm={4}>
-      <Input
-        input type="password" name="password" value={this.state.password}
-        onChange={(e) => this.handleInputChange("password", e)}
-      />
-    </Col>
-  </FormGroup>
-
-  <FormGroup row>
-    <Label ></Label>
-    <Col className="text-center" sm={4}>
-      {this.state.message && (
-        <Alert
-          color="danger"
-          isOpen={this.state.visible}
-          toggle={this.onDismiss}
-        >
-          {this.state.message}
-        </Alert>
-      )}
-    </Col>
-  </FormGroup>
-  <Button color="primary" onClick={(e) => this.handleClick(e)}>Signup</Button>
-</div> */}
 
 export default Signup;

@@ -5,11 +5,12 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import '../pages/Sample.css';
+import GPSLogo from "../../images/gps-icon.png"
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: this.props.value == "" ? '' : this.props.value };
+    this.state = { address: this.props.value === "" ? '' : this.props.value };
     this.getLocation = this.getLocation.bind(this)
     this.showPosition = this.showPosition.bind(this)
   }
@@ -51,7 +52,7 @@ class LocationSearchInput extends React.Component {
             <div className="input-group mb-2" >
               <div className="input-group-prepend ">
                 <div className="input-group-text" onClick={e => this.getLocation(e)}>
-                  <img style={{ width: "20px" }} src="/images/gps-icon.png" alt="h" />
+                  <img style={{ width: "20px" }} src={GPSLogo} alt="h" />
                 </div>
               </div>
               <input

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css'
+import EditLogo from "../../images/edit_w.png"
+import DeleteLogo from "../../images/trash_w.png"
 const K_WIDTH = 400;
 const K_HEIGHT = 300;
 
@@ -35,9 +37,9 @@ class EnlargedImage extends Component {
           <p>{this.props.address}</p>
           {this.props.isOwner && <div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
-              <img className="Icon" src="/edit_w.png" style={{ width: "45px" }} alt="t" />
+              <img className="Icon" src={EditLogo} style={{ width: "45px" }} alt="t" />
             </Link>
-            <img className="Icon" src="/trash_w.png" style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
+            <img className="Icon" src={DeleteLogo} style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
         </div>
         }
         <div>{this.props.children}</div>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
 import api from '../../api';
 import '../App.css';
-import PlusButton from '../pages/PlusButton';
 import SearchField from '../pages/SearchField';
 
 

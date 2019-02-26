@@ -117,22 +117,3 @@
   width:100%;
   height:calc(2.25rem + 2px)
 }
-
-.upload-button{
-  background-color:#e56969;
-  border-color: #e56969;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 7px;
-  width: 100%;
-  color: #fff;
-  box-shadow: 0 3px 10px #ba5e5e7a;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-
-.upload-button:hover{
-  background-color:#c44747e5;
-
-  border-color:black;
-}

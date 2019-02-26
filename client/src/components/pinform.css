@@ -1,0 +1,107 @@
+.AddPic.container {
+  max-width: 700px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.65);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.70);
+  /* color: #7e8b97; */
+  color: white;
+  /* font-weight: 500; */
+  font-weight: 400;
+  padding: 40px 50px 30px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+ .AddPic.background {
+  background-image: url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 80px 50px;
+  /* padding: 80px 150px; */
+ }
+
+ @media (max-width: 700px){
+  .AddPic.background {
+    padding: 80px 15px 50px;
+  }
+ }
+
+ .AddPic h1{
+  font-size: 170%;
+  margin-bottom: 3rem;
+  color: white;
+ }
+
+ h1{
+  font-size: 170%;
+  margin-bottom: 3rem;
+  color: white;
+ }
+
+ .upload-button{
+  background-color:#e56969;
+  border-color: #e56969;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 7px;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 3px 10px #ba5e5e7a;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.upload-button:hover{
+  background-color:#c44747e5;
+
+  border-color:black;
+}
+
+/* Hide the file input using
+opacity */
+[type=file] {
+  position: absolute;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+[type=file] + label {
+/* border: 1px solid #CCC; */
+margin: 0;
+position: relative;
+}
+
+#f02[type=file] + label {
+text-align: center;
+height: calc(2.25rem + 2px);
+padding: .375rem .75rem;
+cursor: pointer;
+display: block;
+width: inherit;
+/* Decorative */
+background: darkgray;
+overflow: hidden;
+/* color: #495057; */
+color: white;
+text-shadow: none;
+border: 1px solid #ced4da;
+border-radius: .25rem;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+#f02[type=file] + label:hover {
+/* background: #3399ff; */
+background: #80bdff;
+}
+
+#exampleText, #examplePassword {
+  border: none;
+  border-bottom: 3px solid #e56969;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: mistyrose;
+}

@@ -3,8 +3,9 @@ import api from '../../api';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
 import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import '../pinform.css'
 
-
+let labelDescr = "No file chosen"
 
 class AddPic extends Component {
   constructor(props) {
@@ -110,21 +111,32 @@ class AddPic extends Component {
   render() {
     return (
       <div className="AddPic background" >
-        <div className="AddPic container" style={{ paddingTop: "60px" }}>
+        <div className="AddPic container">
           <h1>Add a picture</h1>
           <Form onSubmit={(e) => this.handleSubmit(e)}>
             <FormGroup row>
               <Label for="exampleFile" sm={4}>Choose your Picture</Label>
               <Col sm={8}>
                 {/* <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} /> */}
-                <input id="f02" type="file" name="image" onChange={(e) => this.handleInputChange("image", e)} placeholder="Edit picture" />
-                <label for="f02">{this.state.imageWasUploaded ? this.state.imageName : "No file chosen"}</label>
+                <input
+                  id="f02"
+                  type="file"
+                  name="image"
+                  onChange={(e) => this.handleInputChange("image", e)}
+                  placeholder="Edit picture"
+                />
+                <label for="f02">{this.state.imageWasUploaded ? this.state.imageName : labelDescr}</label>
               </Col>
             </FormGroup>
             <FormGroup row>
               <Label for="exampleSelect" sm={4}>Tags</Label>
               <Col sm={8}>
-                <Input type="select" name="tag" id="exampleSelect" onChange={(e) => this.handleInputChange("tag", e)}>
+                <Input
+                  type="select"
+                  name="tag"
+                  id="exampleSelect"
+                  onChange={(e) => this.handleInputChange("tag", e)}
+                >
                   {this.state.filterTag.map((el, i) =>
                     (<option key={i} value={el}>{el}</option>))
                   }
@@ -134,7 +146,14 @@ class AddPic extends Component {
             <FormGroup row>
               <Label for="exampleSelect" sm={4}>Location</Label>
               <Col sm={8}>
-                <LocationSearchInput name="address" handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)} onSelect={this.handleSelect} handleInputChange={this.handleInputChange} address={this.state.address} handleChangeAdress={this.handleChangeAdress} />
+                <LocationSearchInput
+                  name="address"
+                  handleGeolocation={(lat, long) => this.handleGeolocation(lat, long)}
+                  onSelect={this.handleSelect}
+                  handleInputChange={this.handleInputChange}
+                  address={this.state.address}
+                  handleChangeAdress={this.handleChangeAdress}
+                />
               </Col>
             </FormGroup>
             <button className="upload-button" block>Upload</button>

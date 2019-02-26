@@ -83,16 +83,33 @@ class App extends Component {
               <Nav className="sm-auto" navbar>
 
                 {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src={ListLogo} alt="List" />}
+                  {<img
+                    onClick={(e) => this.handleClickOnNavIcon(e)}
+                    className="img-list"
+                    src={ListLogo}
+                    alt="List"
+                  />}
                 </NavLink></NavItem>}
 
                 {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
-                  {<img onClick={(e) => this.handleClickOnNavIcon(e)} className="img-list" src={MapLogo} alt="Map" style={{ width: '30px' }} />}
+                  {<img
+                    onClick={(e) => this.handleClickOnNavIcon(e)}
+                    className="img-list"
+                    src={MapLogo}
+                    alt="Map"
+                    style={{ width: '30px' }}
+                  />}
                 </NavLink></NavItem>}
 
                 <NavItem className="d-flex align-items-center">
                   {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src={CreateLogo} alt="Add Pic" />}</NavLink>
-                  {!api.isLoggedIn() && <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="TooltipExample" toggle={this.toggle}>Please log in first</Tooltip>}
+                  {!api.isLoggedIn() && <Tooltip
+                    placement="bottom"
+                    isOpen={this.state.tooltipOpen}
+                    target="TooltipExample"
+                    toggle={this.toggle}>
+                    Please log in first
+                                        </Tooltip>}
                 </NavItem>
 
                 <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/signup">Signup</NavLink>}</NavItem>
@@ -100,7 +117,12 @@ class App extends Component {
                 <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
 
                 {api.isLoggedIn() && <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/login">
-                  {<svg onClick={(e) => this.handleLogoutClick(e)} className="logout-icon" style={{ width: "46px", fill: "white", height: "28px", padding: "3px", margin: "10px" }}> <use xlinkHref={`${NavIcons}#logout`} /> </svg>}</NavLink>}</NavItem>}
+                  {<svg
+                    onClick={(e) => this.handleLogoutClick(e)}
+                    className="logout-icon"
+                    style={{ width: "46px", fill: "white", height: "28px", padding: "3px", margin: "10px" }}>
+                    <use xlinkHref={`${NavIcons}#logout`} />
+                  </svg>}</NavLink>}</NavItem>}
 
               </Nav>
             </Collapse>

@@ -30,9 +30,9 @@ class EnlargedImage extends Component {
   render() {
     let borderColor = this.props.borderColor || 'transparent'
     return (
-      <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} onClick={this.props.onClick} onMouseLeave={this.props.onMouseLeave} >
+      <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} cursor='pointer' onClick={window.screen.width <= 1040 ? e => this.props.onClick(e) : null} onMouseLeave={window.screen.width > 1040 ? e => this.props.onMouseLeave(e) : null} >
         {<div className="MapView" style={{ position: "relative" }}>
-          <img src={this.props.image} width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
+          <img src={this.props.image} className="enlarged-image" width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
           <p>{this.props.address}</p>
           {this.props.isOwner && <div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>

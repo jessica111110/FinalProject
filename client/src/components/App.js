@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Route,
   Switch,
-  NavLink
+  NavLink,
+  Link
 } from 'react-router-dom';
 import {
   Collapse,
@@ -26,6 +27,7 @@ import ListLogo from "./../images/list_new_w.png"
 import MapLogo from "./../images/globe_w.png"
 import NavLogo from "./../images/maepic_w_transparent.png"
 import CreateLogo from "./../images/camera_w.png"
+import BarIcon from '../../src/sprite(1).svg'
 
 
 
@@ -35,13 +37,20 @@ class App extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.handleClickOnNavIcon = this.handleClickOnNavIcon.bind(this);
+    this.handleClickOnLogIn = this.handleClickOnLogIn.bind(this);
+    this.handleClickOnSignUp = this.handleClickOnSignUp.bind(this);
+    this.classToggle = this.classToggle.bind(this);
+
+
     this.state = {
       collapsed: true,
       isOpen: false,
       tooltipOpen: false,
       pictures: [],
       pins: [],
-      mapDisplayed: true,
+      // mapDisplayed: true,
+      onLogIn: false,
+      onSignUp: false,
     }
   }
 
@@ -52,7 +61,22 @@ class App extends Component {
 
   handleClickOnNavIcon(e) {
     this.setState({
-      mapDisplayed: !this.state.mapDisplayed
+      onLogIn: false,
+      onSignUp: false
+    })
+  }
+
+  handleClickOnLogIn(e) {
+    this.setState({
+      onLogIn: true,
+      onSignUp: false
+    })
+  }
+
+  handleClickOnSignUp(e) {
+    this.setState({
+      onLogIn: false,
+      onSignUp: true
     })
   }
 
@@ -68,67 +92,94 @@ class App extends Component {
     });
   }
 
+  classToggle(e) {
+    const navs = document.querySelectorAll('.Navbar__Items--right')
+    navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+  }
+
   render() {
     return (
 
       <div>
-        {/* Navbar reactstrap */}
-        <Navbar className="Navbar" dark expand fixed={`top`}>
-          <NavbarBrand href="/" exact>
-            {<img className="img-logo" src={NavLogo} alt="Logo" />}
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} />
-          <Nav className="ml-auto" navbar>
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="sm-auto" navbar>
+        {/* Own navbar */}
+        <div className="Navbar">
+          <div className="Navbar__Link Navbar__Link-toggle" onClick={(e) => this.classToggle(e)}>
+            {<svg
+              className="menu-icon"
+              style={{ fill: "white", width: "30px", height: "53px" }}>
+              <use xlinkHref={`${BarIcon}#menu`} />
+            </svg>}
+          </div>
+          <nav class="Navbar__Items">
+            <Link onClick={(e) => this.handleClickOnNavIcon(e)} className="nav_link" exact to="/">
+              <div className="Navbar__Link Navbar__Link-brand" href="/" exact>
+                {<img className="img-logo" src={NavLogo} alt="Logo" />}
+              </div>
+            </Link>
+          </nav>
 
-                {this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" to="/list-view">
-                  {<img
-                    onClick={(e) => this.handleClickOnNavIcon(e)}
-                    className="img-list"
-                    src={ListLogo}
-                    alt="List"
-                  />}
-                </NavLink></NavItem>}
+          <nav class="Navbar__Items Navbar__Items--right">
+            <Link onClick={(e) => this.handleClickOnNavIcon(e)} className="nav_link" to="/list-view">
+              <div className="Navbar_Link" to="/list-view">
+                {<img
+                  className="img-list"
+                  src={ListLogo}
+                  alt="List"
+                />}
+              </div> </Link>
 
-                {!this.state.mapDisplayed && <NavItem className="d-flex align-items-center"><NavLink className="nav-link" exact to="/">
-                  {<img
-                    onClick={(e) => this.handleClickOnNavIcon(e)}
-                    className="img-list"
-                    src={MapLogo}
-                    alt="Map"
-                    style={{ width: '30px' }}
-                  />}
-                </NavLink></NavItem>}
 
-                <NavItem className="d-flex align-items-center">
-                  {/* {api.isLoggedIn() ? <NavLink className="nav-link" to="/add-picture">Add Picture</NavLink> : <NavLink to="/login">Add Picture</NavLink>} */}<NavLink className="nav-link" to="/add-picture" href="#" id="TooltipExample">{<img className="img-cam" src={CreateLogo} alt="Add Pic" />}</NavLink>
-                  {!api.isLoggedIn() && <Tooltip
-                    placement="bottom"
-                    isOpen={this.state.tooltipOpen}
-                    target="TooltipExample"
-                    toggle={this.toggle}>
-                    Please log in first
-                                        </Tooltip>}
-                </NavItem>
+            <Link onClick={(e) => this.handleClickOnNavIcon(e)} className="nav_link" exact to="/">
+              <div className="Navbar_Link" exact to="/">
+                {<img
+                  className="img-globe"
+                  src={MapLogo}
+                  alt="Map"
+                />}
+              </div></Link>
 
-                <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/signup">Signup</NavLink>}</NavItem>
 
-                <NavItem className="d-flex align-items-center">{!api.isLoggedIn() && <NavLink className="nav-link" to="/login">Login</NavLink>}</NavItem>
+            {api.isLoggedIn() && <Link
+              onClick={(e) => this.handleClickOnNavIcon(e)}
+              className="Navbar_Link"
+              to="/add-picture"
+              href="#"
+              id="TooltipExample">
+              {<img className="img-cam" src={CreateLogo} alt="Add Pic" />}
+            </Link>}
 
-                {api.isLoggedIn() && <NavItem className="d-flex align-items-center">{api.isLoggedIn() && <NavLink className="nav-link" to="/login">
-                  {<svg
-                    onClick={(e) => this.handleLogoutClick(e)}
-                    className="logout-icon"
-                    style={{ width: "46px", fill: "white", height: "28px", padding: "3px", margin: "10px" }}>
-                    <use xlinkHref={`${NavIcons}#logout`} />
-                  </svg>}</NavLink>}</NavItem>}
+            {!api.isLoggedIn() && <Link
+              onClick={(e) => this.handleClickOnSignUp(e)}
+              style={{ color: this.state.onSignUp && "#fff" }}
+              className="Navbar_Link Navbar_Link_Text"
+              to="/signup">
+              Signup
+                                  </Link>}
 
-              </Nav>
-            </Collapse>
-          </Nav>
-        </Navbar>
-        Name < div>
+            {!api.isLoggedIn() && <Link
+              onClick={(e) => this.handleClickOnLogIn(e)}
+              style={{ color: this.state.onLogIn && "#fff" }}
+              className="Navbar_Link Navbar_Link_Text"
+              to="/login">
+              Login
+                                  </Link>}
+
+            {api.isLoggedIn() && <Link
+              onClick={(e) => this.handleClickOnLogIn(e)}
+              style={{ paddingRight: "15px" }}
+              className="Navbar_Link"
+              to="/login">
+              {<svg
+                onClick={(e) => this.handleLogoutClick(e)}
+                className="logout-icon"
+                style={{ width: "27px", fill: "white", height: "28px" }}>
+                <use xlinkHref={`${NavIcons}#logout`} />
+              </svg>}
+            </Link>}
+          </nav>
+        </div>
+
+        < div>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/list-view" component={List} />

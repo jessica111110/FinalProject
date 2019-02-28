@@ -22,6 +22,26 @@
 	overflow: hidden;
 }
 
+@media (max-width: 400px){
+  .switch-field {
+  padding-left: 16px;
+  }
+}
+
+
+@media (max-width: 330px){
+  .switch-field {
+  margin-left: -8px;
+  margin-right: -29px;
+  }
+}
+
+@media (max-width: 400px){
+  .Home {
+  padding-top: 73px;
+  }
+}
+
 .switch-title {
   margin-bottom: 6px;
 }

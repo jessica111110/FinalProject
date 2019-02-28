@@ -34,7 +34,9 @@ class List extends Component {
   render() {
     return (
 
-      <div className="List" style={{ paddingTop: "60px" }}>
+      // padding-top: vorher 60px;
+
+      <div className="List" style={{ paddingTop: "105px" }}>
         <div className="SearchFieldList">
           <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
         </div>

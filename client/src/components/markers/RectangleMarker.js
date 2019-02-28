@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EnlargedImage from './EnlargedImage';
 import '../../index.css'
+import '../../components/App.css'
 
 const K_WIDTH = 100;
 const K_HEIGHT = 80;
@@ -37,6 +38,7 @@ class RectangleMarker extends Component {
     // api.loadUser();  
     this.handleClickOnPin = this.handleClickOnPin.bind(this)
     this.leavePin = this.leavePin.bind(this)
+    this.handleClickMobile = this.handleClickMobile.bind(this)
   }
 
   handleClickOnPin(event) {
@@ -55,29 +57,31 @@ class RectangleMarker extends Component {
     })
   }
 
+  handleClickMobile(event) {
+    event.preventDefault();
+    this.setState({
+      zoomIn: this.state.zoomIn ? false : true,
+      zIndex: this.state.zIndex === 1 ? 0 : 1
+    })
+  }
+
   render() {
     let borderColor = 'transparent'
     return (
       <div style={{
         ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
-      }} onMouseEnter={e => this.handleClickOnPin(e)} >
+      }} onMouseEnter={e => this.handleClickOnPin(e)} onClick={window.screen.width < 1040 ? e => this.handleClickMobile(e) : null} >
         {
           this.state.zoomIn
             ? <EnlargedImage
               address={this.props.address}
               deletePin={this.props.deletePin}
               pinId={this.props.pinId}
+              onClick={this.handleClickMobile}
               isOwner={this.props.isOwner}
               image={this.props.image}
               onMouseLeave={e => this.leavePin(e)} />
-            : <img src={this.props.image}
-
-              style={{
-                width: 110,
-                height: 90,
-                borderRadius: 15,
-                objectFit: "cover"
-              }}
+            : <img className="rectangle-marker" src={this.props.image}
               alt="test" />
         } < div > {this.props.children}</div >
       </div >

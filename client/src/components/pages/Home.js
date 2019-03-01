@@ -15,12 +15,14 @@ class Home extends Component {
       tagFilter: "",
       showOnlyMyPins: false,
       currentUser: "",
+      sidebarToLeftClicked: false,
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
     this._setCurrentUser = this._setCurrentUser.bind(this)
     this.deletePin = this.deletePin.bind(this)
     this.handleFilterMineOrAll = this.handleFilterMineOrAll.bind(this)
+    this.handleClickSideBar = this.handleClickSideBar.bind(this)
   }
 
   handleInputChange(stateFieldName, event) {
@@ -57,6 +59,13 @@ class Home extends Component {
       })
   }
 
+  handleClickSideBar(event) {
+    event.preventDefault();
+    this.setState({
+      sidebarToLeftClicked: this.state.sidebarToLeftClicked ? false : true
+    })
+  }
+
   render() {
     return (
       <div className="Home" style={{ paddingTop: "95px" }}>
@@ -71,6 +80,15 @@ class Home extends Component {
           </div>
         </div>
         <div>
+        </div>
+        <div className={this.state.sidebarToLeftClicked ? "sidebar sidebar-is-hidden" : "sidebar"}>
+          <div className="sidebar-description">
+            <h2>Map your most epic pictures all over the globe</h2>
+            <p>lab  doe ededowe ruouec9w 833982 chudu9ewf dowvuec cii8eeiu ewiciec ofjec 3uhedhj ice ewiccihr</p>
+          </div>
+          <div className="sidebar-icon">
+            <i className="fas fa-angle-left" onClick={e => this.handleClickSideBar(e)} style={{ transform: this.state.sidebarToLeftClicked && "rotate(180deg)", marginRight: this.state.sidebarToLeftClicked && "14px" }}></i>
+          </div>
         </div>
         <div className="maps-container">
           <GoogleMap

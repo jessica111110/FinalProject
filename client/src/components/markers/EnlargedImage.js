@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.css'
 import EditLogo from "../../images/edit_w.png"
 import DeleteLogo from "../../images/trash_w.png"
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 const K_WIDTH = 400;
 const K_HEIGHT = 300;
 
@@ -27,14 +28,21 @@ const greatPlaceStyle = {
 };
 
 class EnlargedImage extends Component {
+
+
   render() {
     let borderColor = this.props.borderColor || 'transparent'
+    let favCounter = 0;
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} cursor='pointer' onClick={window.screen.width <= 1040 ? e => this.props.onClick(e) : null} onMouseLeave={window.screen.width > 1040 ? e => this.props.onMouseLeave(e) : null} >
         {<div className="MapView" style={{ position: "relative" }}>
           <img src={this.props.image} className="enlarged-image" width="400" height="300" alt="test" style={{ objectFit: "cover", borderRadius: 15 }} />
           <p>{this.props.address}</p>
           {this.props.isOwner && <div>
+            <div className="click">
+              <span className="fas fa-star" onClick={e => this.props.clickOnFav(e)} style={{ color: this.props.favorized && "#F5CC27" }}></span>
+              <a className="btn-counter" data-count={this.props.favorizedCounter}></a>
+            </div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
               <img className="Icon" src={EditLogo} style={{ width: "45px" }} alt="t" />
             </Link>

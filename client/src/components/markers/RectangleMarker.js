@@ -33,12 +33,16 @@ class RectangleMarker extends Component {
     super(props)
     this.state = {
       zoomIn: false,
-      zIndex: 0
+      zIndex: 0,
+      favorized: false,
+      favorizedCounter: 0,
     }
     // api.loadUser();  
     this.handleClickOnPin = this.handleClickOnPin.bind(this)
     this.leavePin = this.leavePin.bind(this)
     this.handleClickMobile = this.handleClickMobile.bind(this)
+    this.clickOnFav = this.clickOnFav.bind(this)
+
   }
 
   handleClickOnPin(event) {
@@ -65,6 +69,19 @@ class RectangleMarker extends Component {
     })
   }
 
+  clickOnFav(event) {
+    event.preventDefault();
+    console.log("hereee")
+    console.log(this.state.favorized)
+    console.log(this.state.favorizedCounter)
+    this.setState({
+      favorized: this.state.favorized ? false : true,
+      favorizedCounter: this.state.favorized ? this.state.favorizedCounter - 1 : this.state.favorizedCounter + 1
+    })
+    console.log("favorized", this.state.favorized)
+    console.log("favcounter", this.state.favorizedCounter)
+  }
+
   render() {
     let borderColor = 'transparent'
     return (
@@ -75,6 +92,9 @@ class RectangleMarker extends Component {
           this.state.zoomIn
             ? <EnlargedImage
               address={this.props.address}
+              clickOnFav={this.clickOnFav}
+              favorized={this.state.favorized}
+              favorizedCounter={this.state.favorizedCounter}
               deletePin={this.props.deletePin}
               pinId={this.props.pinId}
               onClick={this.handleClickMobile}

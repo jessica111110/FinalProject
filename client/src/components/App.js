@@ -21,7 +21,7 @@ import EditPic from './pages/EditPic';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';
 import api from '../api';
-import './App.css';
+import './nav.css';
 import NavIcons from '../../src/sprite.svg'
 import ListLogo from "./../images/list_new_w.png"
 import MapLogo from "./../images/globe_w.png"
@@ -105,8 +105,7 @@ class App extends Component {
         <div className="Navbar">
           <div className="Navbar__Link Navbar__Link-toggle" onClick={(e) => this.classToggle(e)}>
             {<svg
-              className="menu-icon"
-              style={{ fill: "white", width: "30px", height: "53px" }}>
+              className="img-menu">
               <use xlinkHref={`${BarIcon}#menu`} />
             </svg>}
           </div>
@@ -171,8 +170,7 @@ class App extends Component {
               to="/login">
               {<svg
                 onClick={(e) => this.handleLogoutClick(e)}
-                className="logout-icon"
-                style={{ width: "27px", fill: "white", height: "28px" }}>
+                className="img-logout">
                 <use xlinkHref={`${NavIcons}#logout`} />
               </svg>}
             </Link>}

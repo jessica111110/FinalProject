@@ -39,9 +39,9 @@ class Home extends Component {
     })
   }
 
-  handleFilterMineOrAll(stateFieldName, event) {
-    event.target.value === "Mine" && this.setState({ [stateFieldName]: true })
-    event.target.value === "All" && this.setState({ [stateFieldName]: false })
+  handleFilterMineOrAll(event) {
+    event.target.value === "Mine" && this.setState({ showOnlyMyPins: true })
+    event.target.value === "All" && this.setState({ showOnlyMyPins: false })
   }
 
   _setCurrentUser(pinOwner) {

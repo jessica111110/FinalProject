@@ -1,0 +1,52 @@
+.list-container {
+  background-color: #FFE4E0;
+}
+
+.listview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listview-element{
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.listview-element p{
+  color: white;
+  font-weight:bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 30px #6d6c6c;
+  font-size:180%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .5s ease-out, visibility .5s ease-out;
+}
+
+.listview-element:hover p{
+  visibility: visible;
+  opacity: 1;
+}
+
+.listview-element img{
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  transition: 0.9s ease-out;
+}
+
+.listview-element:hover img{
+  transform: scale(1.4);
+}
+
+.list-container searchfield{
+  margin:30px;
+
+}

@@ -55,6 +55,11 @@
   justify-content: center;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: white,
+}
+
 h1{
   font-size: 170%;
   margin-bottom: 3rem;

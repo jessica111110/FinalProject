@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import EnlargedImage from './EnlargedImage';
-import '../../index.css'
-import '../../components/App.css'
+import '../pin_img.css'
 
 const K_WIDTH = 100;
 const K_HEIGHT = 80;

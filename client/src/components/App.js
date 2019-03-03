@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import {
   Route,
   Switch,
-  NavLink,
   Link
 } from 'react-router-dom';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavbarBrand,
-  NavItem,
-  Tooltip
-} from 'reactstrap';
+
 import Home from './pages/Home';
 import List from './pages/List';
 import AddPic from './pages/AddPic';

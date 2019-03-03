@@ -39,12 +39,6 @@
   }
 }
 
-@media (max-width: 400px){
-  .Home {
-  padding-top: 73px;
-  }
-}
-
 .switch-title {
   margin-bottom: 6px;
 }

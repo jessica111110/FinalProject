@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import '../App.css';
+// import '../App.css';
+import '../listview.css';
 import SearchField from '../pages/SearchField';
 
 
@@ -36,18 +37,18 @@ class List extends Component {
 
       // padding-top: vorher 60px;
 
-      <div className="List" style={{ paddingTop: "105px" }}>
-        <div className="SearchFieldList">
+      <div className="list-container" style={{ paddingTop: "115px" }}>
+        <div className="searchfield">
           <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />
         </div>
-        <div className="flex">
+        <div className="listview">
           {this.state.pins.filter(p => {
             if (this.state.tagFilter === null) return true
             else if (this.state.tagFilter !== "") {
               return p.tag === this.state.tagFilter
             }
           }).map((p, i) => (
-            <div key={i} className="ListView">
+            <div key={i} className="listview-element">
               <img src={p.image} alt="test" />
               <p>{p.address}</p>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css'
+import '../pin_img.css'
 import EditLogo from "../../images/edit_w.png"
 import DeleteLogo from "../../images/trash_w.png"
 import '../../../node_modules/font-awesome/css/font-awesome.min.css'
@@ -32,7 +32,6 @@ class EnlargedImage extends Component {
 
   render() {
     let borderColor = this.props.borderColor || 'transparent'
-    let favCounter = 0;
     return (
       <div style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute" }} cursor='pointer' onClick={window.screen.width <= 1040 ? e => this.props.onClick(e) : null} onMouseLeave={window.screen.width > 1040 ? e => this.props.onMouseLeave(e) : null} >
         {<div className="MapView" style={{ position: "relative" }}>

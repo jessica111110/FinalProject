@@ -1,0 +1,116 @@
+/* Small and big version of pinned images on the world map */
+
+.rectangle-marker {
+  width: 110px;
+  height: 90px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+@media (max-width: 450px){
+  .rectangle-marker{
+    width: 85px;
+    height: 74px;
+  }
+  .enlarged-image{
+    width: 300px;
+    height: 234px;
+  }
+}
+
+.MapView p{
+  color: white;
+  font-weight:bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 30px #6d6c6c;
+  font-size:180%;
+}
+
+.click {
+	font-size: 33px;
+	/* color: rgba(0,0,0,.5); */
+	width: 38px;
+	height: 38px;
+  margin-left: 16px; 
+  position: absolute;
+  cursor: pointer;
+  top: 12%;
+}
+
+
+.click span {
+  margin-left: 4px;
+  /* margin-top: -10px; */
+  margin-top: -7px;
+  z-index: 999;
+  transition: all .32s ease;
+  color: white;
+  /* font-size: 52px; */
+  font-size: 43px;
+/* 	position: absolute; */
+}
+
+.click span:hover {
+	opacity: 0.8;
+}
+
+.click span:active {
+	transform: scale(0.93,0.93) translateY(2px)
+}
+
+.active span, .active-2 span {
+	color: #F5CC27 !important;
+}
+
+
+/* Icons on each enlarged image */
+
+/*
+ * Counter button style
+ */
+.btn-counter { margin-right: 39px; }
+.btn-counter:after,
+.btn-counter:hover:after { text-shadow: none; }
+.btn-counter:after {
+  border-radius: 3px;
+  border: 3px solid white;
+/* 	  border: 2px solid grey; */
+  background-color: #eee;
+  padding: 0px 17px;
+  color: #777;
+  content: attr(data-count);
+  left: 100%;
+  margin-left: 25px;
+  margin-right: -13px;
+  position: absolute;
+  /* top: -2px; */
+  top: 0px;
+  height: 31px;
+  font-size: 20px;
+}
+.btn-counter:before {
+  transform: rotate(45deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476, sizingMethod='auto expand');
+
+  background-color: #eee;
+  border: 3px solid white;
+  border-right: 0;
+  border-top: 0;
+  content: '';
+  position: absolute;
+  right: -28px;
+  /* top: 10px; */
+  top: 12px;
+  height: 6px;
+  width: 6px;
+  z-index: 1;
+  zoom: 1;
+}
+
+.Icon {
+  color: white;
+  box-shadow: #6d6c6c;
+}

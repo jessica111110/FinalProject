@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../api';
-import '../App.css';
+// import '../App.css';
+import '../home.css';
 import RectangleMarker from '../Markers/RectangleMarker';
 import SearchField from '../pages/SearchField';
 import RadioFields from '../pages/RadioFields';

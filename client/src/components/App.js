@@ -12,7 +12,6 @@ import EditPic from './pages/EditPic';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';
 import api from '../api';
-import './nav.css';
 import NavIcons from '../../src/sprite.svg'
 import ListLogo from "./../images/list_new_w.png"
 import MapLogo from "./../images/globe_w.png"

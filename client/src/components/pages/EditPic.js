@@ -3,7 +3,6 @@ import api from '../../api';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../pinform.css'
 
 
 class EditPic extends Component {

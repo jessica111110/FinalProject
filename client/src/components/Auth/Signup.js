@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import '../sign.css'
 
 class Signup extends Component {
   constructor(props) {

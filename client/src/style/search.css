@@ -1,0 +1,15 @@
+/* Styling for LocationSearchInput and SearchFields.js */
+
+.input-group-prepend {
+  width: initial;
+}
+
+.location-search-input{
+  width:100%;
+  height:calc(2.25rem + 2px)
+}
+
+.mb-2 {
+  position: relative;
+  float: left;
+}

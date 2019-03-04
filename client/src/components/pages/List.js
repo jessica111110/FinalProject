@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api';
-// import '../App.css';
-import '../listview.css';
 import SearchField from '../pages/SearchField';
 
 

@@ -65,3 +65,18 @@ h1{
   margin-bottom: 3rem;
   color: white;
  }
+
+ .button.btn.btn-secondary {
+  background-color: #E56969;
+    border: none;
+    border-color: #e56969;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.button.btn.btn-secondary:hover {
+  background-color: #c44747e5;
+}

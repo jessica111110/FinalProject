@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import './Sample.css';
 import AllPinsLogo from "../../images/all.png"
 import MyPinsLogo from "../../images/me.png"
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../pin_img.css'
 import EditLogo from "../../images/edit_w.png"
 import DeleteLogo from "../../images/trash_w.png"
 import '../../../node_modules/font-awesome/css/font-awesome.min.css'

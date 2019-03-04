@@ -1,0 +1,16 @@
+/* Base */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Work Sans,sans-serif;
+  background-color: #FFE4E0;
+}
+
+ h1{
+  font-size: 170%;
+  margin-bottom: 3rem;
+  color: white;
+ }
+

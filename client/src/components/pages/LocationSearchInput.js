@@ -4,7 +4,6 @@ import PlacesAutocomplete, {
   // geocodeByPlaceId,
   getLatLng,
 } from 'react-places-autocomplete';
-import '../pages/Sample.css';
 import GPSLogo from "../../images/gps-icon.png"
 
 class LocationSearchInput extends React.Component {

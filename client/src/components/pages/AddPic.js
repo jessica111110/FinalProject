@@ -3,7 +3,6 @@ import api from '../../api';
 import LocationSearchInput from './LocationSearchInput';
 import Geocode from "react-geocode";
 import { Form, FormGroup, Label, Input, Col } from 'reactstrap';
-import '../pinform.css'
 
 let labelDescr = "No file chosen"
 

@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import './Sample.css';
 import TagLogo from "../../images/hashtag_w.png"
 
 class SearchField extends Component {

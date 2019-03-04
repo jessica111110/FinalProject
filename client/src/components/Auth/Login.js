@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import api from '../../api';
 import { NavLink } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input, Label } from 'reactstrap';
-// import '../App.css';
-import '../sign.css'
 
 
 class Login extends Component {

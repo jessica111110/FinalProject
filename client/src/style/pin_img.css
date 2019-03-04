@@ -18,6 +18,13 @@
   }
 }
 
+@media (max-width: 360px) {
+  .enlarged-image{
+    width: 260px;
+    height: 205px;
+  }
+}
+
 .MapView p{
   color: white;
   font-weight:bold;
@@ -26,7 +33,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 1px 1px 30px #6d6c6c;
-  font-size:180%;
+  font-size: 150%;
 }
 
 .click {
@@ -37,19 +44,22 @@
   margin-left: 16px; 
   position: absolute;
   cursor: pointer;
-  top: 12%;
+  /* top: 12%; */
+  top: 7%;
 }
 
 
 .click span {
-  margin-left: 4px;
+  /* margin-left: 4px; */
+  margin-left: 12px;
   /* margin-top: -10px; */
-  margin-top: -7px;
+  /* margin-top: -7px; */
+  margin-top: 7px;
   z-index: 999;
   transition: all .32s ease;
   color: white;
-  /* font-size: 52px; */
-  font-size: 43px;
+  font-size: 33px;
+  /* font-size: 43px; */
 /* 	position: absolute; */
 }
 
@@ -79,7 +89,7 @@
   border: 3px solid white;
 /* 	  border: 2px solid grey; */
   background-color: #eee;
-  padding: 0px 17px;
+  padding: 4px 12px 0px;
   color: #777;
   content: attr(data-count);
   left: 100%;
@@ -87,9 +97,11 @@
   margin-right: -13px;
   position: absolute;
   /* top: -2px; */
-  top: 0px;
-  height: 31px;
-  font-size: 20px;
+  top: 9px;
+  /* top: 0px; */
+  height: 28px;
+  /* font-size: 20px; */
+  font-size: 12px;
 }
 .btn-counter:before {
   transform: rotate(45deg);
@@ -102,8 +114,8 @@
   content: '';
   position: absolute;
   right: -28px;
-  /* top: 10px; */
-  top: 12px;
+  top: 19px;
+  /* top: 12px; */
   height: 6px;
   width: 6px;
   z-index: 1;
@@ -113,4 +125,30 @@
 .Icon {
   color: white;
   box-shadow: #6d6c6c;
+}
+
+@media (max-width: 450px) {
+  .Icon.edit {
+    width: 30px!important;
+  }
+  .Icon.delete {
+    width: 28px!important;
+  }
+  .click {
+    top: 5%;
+    margin-left: 11px;
+  }
+  .click span {
+    font-size: 27px;
+  }
+  .btn-counter:after {
+    top: 11px;
+    height: 23px;
+    border: 2px solid white;
+    padding: 2px 9px 0px;
+    margin-left: 18px;
+  }
+  .btn-counter:before {
+    right: -21px;
+  }
 }

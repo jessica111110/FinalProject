@@ -8,6 +8,7 @@
   }
 }
 
+
 .row {
   margin-bottom: 10px;
   margin-top: -10px;
@@ -31,10 +32,19 @@
 }
 
 @media (min-width: 1031px){
-.sidebar {
+  .sidebar {
   height: calc(100vh - 188px);
   top: 186px;
+  }
 }
+
+@media (max-width: 340px) {
+  .sidebar {
+    width: 335px;
+  }
+  .sidebar-is-hidden .sidebar-icon i {
+    margin-right: 10px!important;
+  }
 }
 
 .sidebar-is-hidden {
@@ -42,7 +52,8 @@ transform: translateX(-297px);
 }
 
 .sidebar-icon i {
-  font-size: 45px;
+  /* font-size: 45px; */
+  font-size: 38px;
   color: #e56969;
   outline: none;
   width: 60px;
@@ -57,6 +68,10 @@ transform: translateX(-297px);
 .sidebar-description {
 padding: 0px 30px;
 transform: translate(10%, -10%);
+}
+
+.sidebar-description h2 {
+  font-size: 170%;
 }
 
 .maps-container {

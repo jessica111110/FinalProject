@@ -42,9 +42,9 @@ class EnlargedImage extends Component {
               <a className="btn-counter" data-count={this.props.favorizedCounter}></a>
             </div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId._id}>
-              <img className="Icon" src={EditLogo} style={{ width: "45px" }} alt="t" />
+              <img className="Icon edit" src={EditLogo} style={{ width: "37px" }} alt="t" />
             </Link>
-            <img className="Icon" src={DeleteLogo} style={{ position: "absolute", top: "8%", left: "63%", width: "45px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
+            <img className="Icon delete" src={DeleteLogo} style={{ position: "absolute", top: "8%", left: "63%", width: "35px", cursor: "pointer" }} onClick={e => this.props.deletePin(e, this.props.pinId)} alt="t" /></div>}
         </div>
         }
         <div>{this.props.children}</div>

@@ -99,7 +99,7 @@ class App extends Component {
               <use xlinkHref={`${BarIcon}#menu`} />
             </svg>}
           </div>
-          <nav class="Navbar__Items">
+          <nav className="Navbar__Items">
             <Link onClick={(e) => this.handleClickOnNavIcon(e)} className="nav_link" exact to="/">
               <div className="Navbar__Link Navbar__Link-brand" href="/" exact>
                 {<img className="img-logo" src={NavLogo} alt="Logo" />}

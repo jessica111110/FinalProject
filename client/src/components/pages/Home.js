@@ -14,7 +14,7 @@ class Home extends Component {
       tagFilter: "",
       showOnlyMyPins: false,
       currentUser: "",
-      sidebarToLeftClicked: false,
+      sidebarToLeftClicked: true,
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -86,7 +86,14 @@ class Home extends Component {
             <p>lab  doe ededowe ruouec9w 833982 chudu9ewf dowvuec cii8eeiu ewiciec ofjec 3uhedhj ice ewiccihr</p>
           </div>
           <div className="sidebar-icon">
-            <i className="fas fa-angle-left" onClick={e => this.handleClickSideBar(e)} style={{ transform: this.state.sidebarToLeftClicked && "rotate(180deg)", marginRight: this.state.sidebarToLeftClicked && "14px" }}></i>
+            <i className="fas fa-angle-left"
+              onClick={e => this.handleClickSideBar(e)}
+              style={{
+                transform: this.state.sidebarToLeftClicked && "rotate(180deg)",
+                marginRight: this.state.sidebarToLeftClicked && "18px",
+                marginBottom: !this.state.sidebarToLeftClicked && "52vh"
+              }}>
+            </i>
           </div>
         </div>
         <div className="maps-container">

@@ -24,7 +24,7 @@ import BarIcon from '../../src/sprite(1).svg'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
+    // this.toggle = this.toggle.bind(this);
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.handleClickOnNavIcon = this.handleClickOnNavIcon.bind(this);
     this.handleClickOnLogIn = this.handleClickOnLogIn.bind(this);
@@ -35,10 +35,9 @@ class App extends Component {
     this.state = {
       collapsed: true,
       isOpen: false,
-      tooltipOpen: false,
+      // tooltipOpen: false,
       pictures: [],
       pins: [],
-      // mapDisplayed: true,
       onLogIn: false,
       onSignUp: false,
     }
@@ -76,11 +75,11 @@ class App extends Component {
     });
   }
 
-  toggle() {
-    this.setState({
-      tooltipOpen: !this.state.tooltipOpen
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     tooltipOpen: !this.state.tooltipOpen
+  //   });
+  // }
 
   classToggle(e) {
     const navs = document.querySelectorAll('.Navbar__Items--right')

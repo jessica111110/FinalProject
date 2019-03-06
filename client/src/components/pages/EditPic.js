@@ -72,7 +72,6 @@ class EditPic extends Component {
         console.error(error);
       }
     );
-    //do sth to convert lat/long in address!!
   }
 
 

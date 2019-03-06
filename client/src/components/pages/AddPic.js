@@ -85,7 +85,6 @@ class AddPic extends Component {
         console.error(error);
       }
     );
-    //do sth to convert lat/long in address!!
   }
 
   handleSubmit(e) {
@@ -116,7 +115,6 @@ class AddPic extends Component {
             <FormGroup row>
               <Label for="exampleFile" sm={4}>Choose your Picture</Label>
               <Col sm={8}>
-                {/* <Input type="file" name="image" id="exampleFile" onChange={(e) => this.handleInputChange("image", e)} /> */}
                 <input
                   id="f02"
                   type="file"

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Pin = require('../models/Pin')
-const { isLoggedIn } = require('../middlewares')
+const Pin = require('../models/Pin');
+const Favorite = require('../models/Favorite');
+const { isLoggedIn } = require('../middlewares');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
 const multer = require('multer');
@@ -36,7 +37,8 @@ router.post('/', isLoggedIn, parser.single("image"), (req, res, next) => {
     tag,
     _owner: req.user._id,
     image,
-    fileName
+    fileName,
+    favorized: 0
   })
 
   newPin.save()
@@ -77,9 +79,18 @@ router.delete('/:id', isLoggedIn, (req, res, next) => {
 
   Pin.findByIdAndRemove(id)
     .then(() => {
-      res.json({
-        success: true
-      })
+      Favorite.deleteMany({ _pin: id })
+        .then((removedFavs) => {
+          res.json({
+            success: true
+          })
+        })
+        .catch(err => {
+          return {
+            success: false,
+            error: err
+          }
+        })
     })
     .catch(err => {
       return {
@@ -95,17 +106,74 @@ router.get('/:id', (req, res, next) => {
 
   Pin.findById(id)
     .then(pinFromDb => {
-      res.json({
-        success: true,
-        pinFromDb
-      })
+      Favorite.findOne({ _pin: id, _owner: req.user && req.user._id })
+        .then(potentialFav => {
+          res.json({
+            success: true,
+            pinFromDb,
+            favedByUser: potentialFav === null ? false : true
+          })
+        })
+        .catch(err => {
+          return {
+            success: false,
+            error: "findoneFailed"
+          }
+        })
     })
     .catch(err => {
       return {
         success: false,
-        error: err
+        error: "PinfindbyIdfailed"
       }
     })
 })
+
+/*Favorize item*/
+router.get('/:id/favorize', isLoggedIn, (req, res, next) => {
+  const { id } = req.params;
+  const userId = req.user._id;
+
+  const newFavorite = new Favorite({
+    _owner: userId,
+    _pin: id
+  })
+
+  Favorite.find({ _owner: userId, _pin: id })
+    .then(favorited => {
+      if (favorited.length > 0) {
+        Pin.findByIdAndUpdate(id, { $inc: { favorized: -1 } }, { new: true, runValidators: true })
+          .then(updatedPin => {
+            Favorite.deleteOne({ _owner: userId, _pin: id })
+              .then(() => {
+                res.json({
+                  success: true,
+                  fav: false
+                })
+              })
+          })
+          .catch(err => {
+            return {
+              success: false,
+              error: err
+            }
+          })
+      }
+      else {
+        Pin.findByIdAndUpdate(id, { $inc: { favorized: 1 } }, { new: true, runValidators: true })
+          .then(updatedPin => {
+            newFavorite.save()
+              .then(fav => {
+                res.json({
+                  success: true,
+                  fav
+                })
+              })
+          })
+          .catch(err => next(err))
+      }
+    })
+    .catch(err => next(err))
+});
 
 module.exports = router;

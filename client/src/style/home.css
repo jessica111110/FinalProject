@@ -89,3 +89,15 @@ transform: translate(10%, -10%);
     margin-top: 2px;
   }
 }
+
+.loading-container h1 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  align-items: center;
+  padding: 240px 0px;
+  font-size: 1.7rem;
+  z-index: 450;
+  font-family: Arvo, sans-serif;
+  text-shadow: 1px 1px 30px #6d6c6c;
+}

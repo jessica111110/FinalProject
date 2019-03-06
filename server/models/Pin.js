@@ -16,6 +16,7 @@ const pinSchema = new Schema({
     type: String,
     required: [true, "A picture is required"]
   },
+  favorized: { type: Number, default: 0 },
   fileName: String,
   tag: {
     type: String,

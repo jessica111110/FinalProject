@@ -4,6 +4,7 @@ import RectangleMarker from '../Markers/RectangleMarker';
 import SearchField from '../pages/SearchField';
 import RadioFields from '../pages/RadioFields';
 import GoogleMap from 'google-map-react';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 
 
 class Home extends Component {
@@ -15,6 +16,7 @@ class Home extends Component {
       showOnlyMyPins: false,
       currentUser: "",
       sidebarToLeftClicked: true,
+      loading: true
     }
     // api.loadUser();  
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -48,11 +50,11 @@ class Home extends Component {
 
   deletePin(event, pinIdToDelete) {
     event.preventDefault();
-    api.deletePin(pinIdToDelete._id)
+    api.deletePin(pinIdToDelete)
       .then(toDelete => {
         this.setState({
           pins: this.state.pins.filter(p =>
-            p !== pinIdToDelete
+            p._id !== pinIdToDelete
           )
         })
       })
@@ -66,6 +68,11 @@ class Home extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div className="loading-container"><h1>LOADING...🌍</h1></div>
+      )
+    }
     return (
       <div className="Home" style={{ paddingTop: "95px" }}>
         <div className="container">
@@ -120,7 +127,8 @@ class Home extends Component {
                 address={p.address}
                 deletePin={this.deletePin}
                 key={i}
-                pinId={p}
+                favCounter={p.favorized}
+                pinId={p._id}
                 image={p.image}
                 lat={p.lat} lng={p.long}
                 borderColor="red"
@@ -129,11 +137,6 @@ class Home extends Component {
             ))}
           </GoogleMap>
         </div>
-        {/* <ul>
-          {this.state.pins.map(p => (
-            <li>{p.tag}</li>
-          ))}
-        </ul> */}
       </div>
     );
   }
@@ -146,9 +149,14 @@ class Home extends Component {
     api
       .getPins()
       .then(pins => {
-        this.setState({
-          pins: pins
-        })
+        this.setState({ pins: pins })
+        setTimeout(() => {
+
+          this.setState({
+            //pins: pins,
+            loading: false
+          })
+        }, 1000);
       })
   }
 }

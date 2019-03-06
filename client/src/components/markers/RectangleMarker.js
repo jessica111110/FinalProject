@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EnlargedImage from './EnlargedImage';
+import api from '../../api';
 
 const K_WIDTH = 100;
 const K_HEIGHT = 80;
@@ -19,7 +20,6 @@ const greatPlaceStyle = {
   alignItems: 'center',
   textAlign: 'center',
   border: '1px solid',
-  // borderRadius: K_HEIGHT,
   color: '#3f51b5',
   fontSize: 16,
   fontWeight: 'bold',
@@ -33,7 +33,7 @@ class RectangleMarker extends Component {
       zoomIn: false,
       zIndex: 0,
       favorized: false,
-      favorizedCounter: 0,
+      favorizedCounter: this.props.favCounter,
     }
     // api.loadUser();  
     this.handleClickOnPin = this.handleClickOnPin.bind(this)
@@ -67,25 +67,43 @@ class RectangleMarker extends Component {
     })
   }
 
-  clickOnFav(event) {
+  clickOnFav(event, pinId) {
     event.preventDefault();
-    console.log("hereee")
-    console.log(this.state.favorized)
-    console.log(this.state.favorizedCounter)
-    this.setState({
-      favorized: this.state.favorized ? false : true,
-      favorizedCounter: this.state.favorized ? this.state.favorizedCounter - 1 : this.state.favorizedCounter + 1
-    })
-    console.log("favorized", this.state.favorized)
-    console.log("favcounter", this.state.favorizedCounter)
+    api.favorizePin(pinId)
+      .then(toFavorize => {
+        if (toFavorize.success) {
+          this.setState({
+            favorized: toFavorize.fav ? true : false,
+            favorizedCounter: toFavorize.fav ? this.state.favorizedCounter + 1 : this.state.favorizedCounter - 1
+          })
+        }
+      })
   }
+
+  componentDidMount() {
+    api.getPin(this.props.pinId)
+      .then(pin => {
+        var isFavedByUser = pin.favedByUser;
+        if (pin.success) {
+          this.setState({
+            favorized: isFavedByUser ? true : false,
+            favorizedCounter: pin.pinFromDb.favorized
+          })
+        }
+      })
+      .catch(err => { console.log(err) })
+  }
+
+
 
   render() {
     let borderColor = 'transparent'
     return (
-      <div style={{
-        ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex
-      }} onMouseEnter={e => this.handleClickOnPin(e)} onClick={window.screen.width < 1040 ? e => this.handleClickMobile(e) : null} >
+      <div
+        style={{ ...greatPlaceStyle, borderColor: borderColor, position: "absolute", zIndex: this.state.zIndex }}
+        onMouseEnter={e => this.handleClickOnPin(e)}
+        onClick={window.screen.width < 1040 ? e => this.handleClickMobile(e) : null}
+      >
         {
           this.state.zoomIn
             ? <EnlargedImage
@@ -105,6 +123,7 @@ class RectangleMarker extends Component {
       </div >
     );
   }
+
 }
 
 

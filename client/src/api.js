@@ -22,7 +22,7 @@ export default {
 
   getPin(id) {
     return service
-      .get('/pins/' + id)
+      .get(`/pins/${id}`)
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -44,16 +44,30 @@ export default {
 
   editPin(data, id) {
     return service
-      .patch('/pins/' + id, data)
+      .patch(`/pins/${id}`, data)
       .then(res => res.data)
       .catch(errHandler);
   },
 
   deletePin(id) {
     return service
-      .delete('/pins/' + id)
+      .delete(`/pins/${id}`)
       .then(res => res.data)
       .catch(errHandler);
+  },
+
+  favorizePin(id) {
+    return service
+      .get(`/pins/${id}/favorize`)
+      .then(res => res.data)
+      .catch(err => {
+        if (err && err.response && err.response.data && err.response.data.error) {
+          err.description = err.response.data.error
+          // reject(err)
+        } else {
+          // reject(err)
+        }
+      });
   },
 
   signup(userInfo) {

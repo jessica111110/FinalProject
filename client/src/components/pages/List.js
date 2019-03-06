@@ -33,8 +33,6 @@ class List extends Component {
   render() {
     return (
 
-      // padding-top: vorher 60px;
-
       <div className="list-container" style={{ paddingTop: "115px" }}>
         <div className="searchfield">
           <SearchField tagFilter={this.state.tagFilter} handleInputChange={this.handleInputChange} />

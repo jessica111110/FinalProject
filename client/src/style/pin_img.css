@@ -37,30 +37,23 @@
 }
 
 .click {
-	font-size: 33px;
-	/* color: rgba(0,0,0,.5); */
-	width: 38px;
+  font-size: 33px;
+  width: 38px;
 	height: 38px;
   margin-left: 16px; 
   position: absolute;
   cursor: pointer;
-  /* top: 12%; */
   top: 7%;
 }
 
 
 .click span {
-  /* margin-left: 4px; */
   margin-left: 12px;
-  /* margin-top: -10px; */
-  /* margin-top: -7px; */
   margin-top: 7px;
   z-index: 999;
   transition: all .32s ease;
-  color: white;
   font-size: 33px;
-  /* font-size: 43px; */
-/* 	position: absolute; */
+  text-shadow: 1px 1px 40px #6d6c6c;
 }
 
 .click span:hover {
@@ -71,8 +64,8 @@
 	transform: scale(0.93,0.93) translateY(2px)
 }
 
-.active span, .active-2 span {
-	color: #F5CC27 !important;
+.click .favorized {
+  color: #F5CC27 !important;
 }
 
 
@@ -87,7 +80,6 @@
 .btn-counter:after {
   border-radius: 3px;
   border: 3px solid white;
-/* 	  border: 2px solid grey; */
   background-color: #eee;
   padding: 4px 12px 0px;
   color: #777;
@@ -95,12 +87,9 @@
   left: 100%;
   margin-left: 25px;
   margin-right: -13px;
-  position: absolute;
-  /* top: -2px; */
+  position: absolute;  
   top: 9px;
-  /* top: 0px; */
   height: 28px;
-  /* font-size: 20px; */
   font-size: 12px;
 }
 .btn-counter:before {
@@ -115,7 +104,6 @@
   position: absolute;
   right: -28px;
   top: 19px;
-  /* top: 12px; */
   height: 6px;
   width: 6px;
   z-index: 1;

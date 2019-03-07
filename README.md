@@ -12,11 +12,11 @@ by Alina and Jessica
 
 ## Screenshots
 
-![SS1](./client/public/Screenshot(651).png)
+![SS1](./client/public/Screenshot(665).png)
 
-![SS2](./client/public/Screenshot(653).png)
+![SS2](./client/public/Screenshot(664).png)
 
-![SS3](./client/public/Screenshot(656).png)
+![SS3](./client/public/Screenshot(663).png)
 
 ![SS4](./client/public/Screenshot(658).png)
 
@@ -24,11 +24,11 @@ by Alina and Jessica
 
 ![SS6](./client/public/Screenshot(662).png)
 
-![SS7](./client/public/Screenshot(663).png)
+![SS7](./client/public/Screenshot(651).png)
 
-![SS8](./client/public/Screenshot(664).png)
+![SS8](./client/public/Screenshot(653).png)
 
-![SS9](./client/public/Screenshot(665).png)
+![SS9](./client/public/Screenshot(656).png)
 
 
 ## How to run this on your local machine

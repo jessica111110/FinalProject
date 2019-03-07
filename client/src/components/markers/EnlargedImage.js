@@ -48,7 +48,8 @@ class EnlargedImage extends Component {
             style={{ objectFit: "cover", borderRadius: 15 }}
           />
           <p>{this.props.address}</p>
-          <div className="click">
+
+          {api.isLoggedIn() && <div className="click">
 
             <span
               className="fas fa-star"
@@ -57,7 +58,8 @@ class EnlargedImage extends Component {
             </span>
 
             <a className="btn-counter" data-count={this.props.favorizedCounter}></a>
-          </div>
+          </div>}
+
           {this.props.isOwner && <div>
             <Link style={{ position: "absolute", top: "8%", left: "80%" }} to={"/edit-picture/" + this.props.pinId}>
               <img className="Icon edit" src={EditLogo} style={{ width: "37px" }} alt="t" />

@@ -1,5 +1,6 @@
 # maepic - Map your most epic pics instantly while traveling.
 This is our final project of our Web Development Bootcamp at Ironhack.
+
 Created using the MERN stack, Google Maps API, Cloudinary, Reactstrap and CSS.
 
 ![maepic Logo](./client/src/images/maepic_logo_interim.png)
@@ -8,6 +9,26 @@ by Alina and Jessica
 
 #### Post your epic pictures on a map... instantly based on geolocation!
 ##### See which pictures others share on their map. So many unknown places to explore.
+
+## Screenshots
+
+![SS1](./client/public/Screenshot(651).png)
+
+![SS2](./client/public/Screenshot(653).png)
+
+![SS3](./client/public/Screenshot(656).png)
+
+![SS4](./client/public/Screenshot(658).png)
+
+![SS5](./client/public/Screenshot(659).png)
+
+![SS6](./client/public/Screenshot(662).png)
+
+![SS7](./client/public/Screenshot(663).png)
+
+![SS8](./client/public/Screenshot(664).png)
+
+![SS9](./client/public/Screenshot(665).png)
 
 
 ## How to run this on your local machine
@@ -67,5 +88,5 @@ MONGODB_URI=mongodb://localhost/27017/project3db
 REACT_APP_GOOGLE_API_KEY=AIzaSyAhPX46V_30-b2s3yLtWJgHp9JI3tzQ5VA
 ```
 
-Alternately direct your browser to the live version on https://maepic.herokuapp.com. Please be aware that this is not the current version due to technical issues.
+Alternately direct your browser to the live version on [Heroku](https://maepic.herokuapp.com). Please be aware that this is not the current version due to technical issues.
 

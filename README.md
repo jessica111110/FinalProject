@@ -1,7 +1,7 @@
 # maepic - Map your most epic pics instantly while traveling.
 This is our final project of our Web Development Bootcamp at Ironhack.
 
-Created using the MERN stack, Google Maps API, Cloudinary, Reactstrap and CSS.
+Created using HTML5, CSS, Reactstrap, Javascript, React, Node.js, MongoDB, Express, Google Maps API, Cloudinary and google-map-react
 
 ![maepic Logo](./client/src/images/maepic_logo_interim.png)
 
@@ -11,6 +11,8 @@ by Alina and Jessica
 ##### See which pictures others share on their map. So many unknown places to explore.
 
 ## Screenshots
+
+The project is fully responsive
 
 ![SS1](./client/public/Screenshot(665).png)
 

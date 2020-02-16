@@ -39,6 +39,9 @@
     "dev": "nodemon ./bin/www",
     "dev:windows": "nodemon ./bin/www"
   },
+  "engines": {
+    "node": "8.13.0"
+  },
   "devDependencies": {
     "nodemon": "^1.12.1"
   }

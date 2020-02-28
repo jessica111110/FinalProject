@@ -90,7 +90,7 @@ class Home extends Component {
         <div className={this.state.sidebarToLeftClicked ? "sidebar sidebar-is-hidden" : "sidebar"}>
           <div className="sidebar-description">
             <h2>Map your most epic pictures all over the globe</h2>
-            <p>lab  doe ededowe ruouec9w 833982 chudu9ewf dowvuec cii8eeiu ewiciec ofjec 3uhedhj ice ewiccihr</p>
+            <p>Hover over an image to find out more. Log in to upload, edit and delete your own maepics and favorize visual memories of others. Use the menu to inspect your snapshots only or to search for specific hashtags. Have fun exploring!</p>
           </div>
           <div className="sidebar-icon">
             <i className="fas fa-angle-left"

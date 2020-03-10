@@ -90,5 +90,5 @@ MONGODB_URI=mongodb://localhost/27017/project3db
 REACT_APP_GOOGLE_API_KEY=AIzaSyAhPX46V_30-b2s3yLtWJgHp9JI3tzQ5VA
 ```
 
-Alternately direct your browser to the live version on [Heroku](https://maepic.herokuapp.com). Please be aware that this is not the current version due to technical issues.
+Alternately direct your browser to the live version on [Heroku](https://maepic.herokuapp.com). 
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Don't forget to set "MONGODB_URI" in ~/server/.env
-const uri = process.env.MONGODB_URI || `mongodb://localhost/project3db`;
+const uri = process.env.DB_URI || `mongodb://localhost/project3db`;
 
 mongoose
   .connect(uri, { useNewUrlParser: true })
